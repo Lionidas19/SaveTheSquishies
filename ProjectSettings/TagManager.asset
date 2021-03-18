@@ -7,6 +7,12 @@ TagManager:
   - Obstacle
   - CreateObjectPanel
   - Avatar
+  - BluePlat
+  - YellowPlat
+  - RedPlat
+  - PurplePlat
+  - OrangePlat
+  - GreenPlat
   layers:
   - Default
   - TransparentFX

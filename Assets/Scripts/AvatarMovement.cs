@@ -12,4 +12,12 @@ public class AvatarMovement : MonoBehaviour
         if(ActiveColors.goButton == true)
         transform.Translate(Vector2.right * Time.deltaTime * movementSpeed);
     }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if(other.tag == "BluePlat")
+        {
+            gameObject.GetComponent<Rigidbody>().velocity = new Vector2(gameObject.GetComponent<Rigidbody>().velocity.x, - gameObject.GetComponent<Rigidbody>().velocity.y + 1);
+        }
+    }
 }
