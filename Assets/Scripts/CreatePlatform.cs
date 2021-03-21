@@ -142,7 +142,7 @@ public class CreatePlatform : MonoBehaviour, IPointerUpHandler, IPointerDownHand
                 BluePlatform.name = "BluePlatform";
                 BluePlatform.transform.position = new Vector2((objectStart.x + objectEnd.x) / 2, (objectStart.y + objectEnd.y) / 2);
                 BluePlatform.transform.rotation = Quaternion.Euler(0, 0, Mathf.Rad2Deg * Mathf.Atan((objectEnd.y - objectStart.y) / (objectEnd.x - objectStart.x)));
-                BluePlatform.transform.localScale = new Vector3(Vector3.Distance(objectStart, objectEnd), 0.1f, 10f);
+                BluePlatform.transform.localScale = new Vector2(Vector2.Distance(objectStart, objectEnd) / 2, 0.1f);
                 BluePlatform.AddComponent(typeof(UnityEngine.AI.NavMeshObstacle));
                 /*Renderer platformRenderer = BluePlatform.GetComponent<Renderer>();
                 platformRenderer.material.SetColor("_Color", Color.blue);*/
@@ -154,7 +154,7 @@ public class CreatePlatform : MonoBehaviour, IPointerUpHandler, IPointerDownHand
                 RedPlatform.name = "RedPlatform";
                 RedPlatform.transform.position = new Vector2((objectStart.x + objectEnd.x) / 2, (objectStart.y + objectEnd.y) / 2);
                 RedPlatform.transform.rotation = Quaternion.Euler(0, 0, Mathf.Rad2Deg * Mathf.Atan((objectEnd.y - objectStart.y) / (objectEnd.x - objectStart.x)));
-                RedPlatform.transform.localScale = new Vector3(Vector3.Distance(objectStart, objectEnd), 0.1f, 10f);
+                RedPlatform.transform.localScale = new Vector2(Vector2.Distance(objectStart, objectEnd) / 2, 0.1f);
                 RedPlatform.AddComponent(typeof(UnityEngine.AI.NavMeshObstacle));
                 /*platformRenderer.material.SetColor("_Color", Color.red);*/
             }
@@ -164,8 +164,8 @@ public class CreatePlatform : MonoBehaviour, IPointerUpHandler, IPointerDownHand
                 YellowPlatform.name = "YellowPlatform";
                 YellowPlatform.transform.position = new Vector2((objectStart.x + objectEnd.x) / 2, (objectStart.y + objectEnd.y) / 2);
                 YellowPlatform.transform.rotation = Quaternion.Euler(0, 0, Mathf.Rad2Deg * Mathf.Atan((objectEnd.y - objectStart.y) / (objectEnd.x - objectStart.x)));
-                YellowPlatform.transform.localScale = new Vector3(Vector3.Distance(objectStart, objectEnd), 0.1f, 10f);
-                YellowPlatform.AddComponent(typeof(UnityEngine.AI.NavMeshObstacle));
+                YellowPlatform.transform.localScale = new Vector2(Vector2.Distance(objectStart, objectEnd) / 2, 0.1f);
+                /*YellowPlatform.AddComponent(typeof(UnityEngine.AI.NavMeshObstacle));*/
                 /*platformRenderer.material.SetColor("_Color", Color.yellow);*/
             }
             else if (ActiveColors.blue == true && ActiveColors.red == true && ActiveColors.yellow == false)
@@ -174,7 +174,7 @@ public class CreatePlatform : MonoBehaviour, IPointerUpHandler, IPointerDownHand
                 PurplePlatform.name = "PurplePlatform";
                 PurplePlatform.transform.position = new Vector2((objectStart.x + objectEnd.x) / 2, (objectStart.y + objectEnd.y) / 2);
                 PurplePlatform.transform.rotation = Quaternion.Euler(0, 0, Mathf.Rad2Deg * Mathf.Atan((objectEnd.y - objectStart.y) / (objectEnd.x - objectStart.x)));
-                PurplePlatform.transform.localScale = new Vector3(Vector3.Distance(objectStart, objectEnd), 0.1f, 10f);
+                PurplePlatform.transform.localScale = new Vector2(Vector2.Distance(objectStart, objectEnd) / 2, 0.1f);
                 PurplePlatform.AddComponent(typeof(UnityEngine.AI.NavMeshObstacle));
                 /*platformRenderer.material.SetColor("_Color", Color.magenta);*/
             }
@@ -184,7 +184,7 @@ public class CreatePlatform : MonoBehaviour, IPointerUpHandler, IPointerDownHand
                 GreenPlatform.name = "GreenPlatform";
                 GreenPlatform.transform.position = new Vector2((objectStart.x + objectEnd.x) / 2, (objectStart.y + objectEnd.y) / 2);
                 GreenPlatform.transform.rotation = Quaternion.Euler(0, 0, Mathf.Rad2Deg * Mathf.Atan((objectEnd.y - objectStart.y) / (objectEnd.x - objectStart.x)));
-                GreenPlatform.transform.localScale = new Vector3(Vector3.Distance(objectStart, objectEnd), 0.1f, 10f);
+                GreenPlatform.transform.localScale = new Vector2(Vector2.Distance(objectStart, objectEnd) / 2, 0.1f);
                 GreenPlatform.AddComponent(typeof(UnityEngine.AI.NavMeshObstacle));
                 /*platformRenderer.material.SetColor("_Color", Color.green);*/
             }
@@ -194,7 +194,7 @@ public class CreatePlatform : MonoBehaviour, IPointerUpHandler, IPointerDownHand
                 OrangePlatform.name = "YellowPlatform";
                 OrangePlatform.transform.position = new Vector2((objectStart.x + objectEnd.x) / 2, (objectStart.y + objectEnd.y) / 2);
                 OrangePlatform.transform.rotation = Quaternion.Euler(0, 0, Mathf.Rad2Deg * Mathf.Atan((objectEnd.y - objectStart.y) / (objectEnd.x - objectStart.x)));
-                OrangePlatform.transform.localScale = new Vector3(Vector3.Distance(objectStart, objectEnd), 0.1f, 10f);
+                OrangePlatform.transform.localScale = new Vector2(Vector2.Distance(objectStart, objectEnd) / 2, 0.1f);
                 OrangePlatform.AddComponent(typeof(UnityEngine.AI.NavMeshObstacle));
                 /*platformRenderer.material.SetColor("_Color", Color.cyan);*/
             }
