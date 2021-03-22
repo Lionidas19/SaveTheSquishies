@@ -1760,6 +1760,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Background_Image
       objectReference: {fileID: 0}
+    - target: {fileID: 453116082660933403, guid: 99175fac183ecea43a64e1fbd0ef640b,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 99175fac183ecea43a64e1fbd0ef640b, type: 3}
 --- !u!4 &883151464 stripped
@@ -2196,7 +2201,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d0351c9bf79d78c4f9f57201023330bd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  movementSpeed: 5
 --- !u!1 &1338112839
 GameObject:
   m_ObjectHideFlags: 0

@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class AvatarMovement2D : MonoBehaviour
 {
-    public float movementSpeed;
+    /*public float movementSpeed;*/
 
     // Update is called once per frame
     void Update()
@@ -13,17 +13,6 @@ public class AvatarMovement2D : MonoBehaviour
         /*Debug.Log("Avatar's vertical speed" + gameObject.GetComponent<Rigidbody2D>().velocity.y);*/
         /*if (ActiveColors.goButton == true)
             transform.Translate(Vector2.right * Time.deltaTime * movementSpeed);*/
-        /*if(IsGrounded() == true)
-        {
-            if (ActiveColors.goButton == true)
-            {
-
-                if (gameObject.GetComponent<Rigidbody2D>().velocity.x < 5)
-                    gameObject.GetComponent<Rigidbody2D>().AddForce(transform.right * 10);
-                else
-                    gameObject.GetComponent<Rigidbody2D>().AddForce(transform.right * 0);
-            }
-        }*/
     }
 
     private void OnTriggerEnter2D(Collider2D other)
@@ -32,7 +21,7 @@ public class AvatarMovement2D : MonoBehaviour
         {
             if (gameObject.GetComponent<Rigidbody2D>().velocity.y <= 0)
             {
-                gameObject.GetComponent<Rigidbody2D>().velocity = new Vector2(gameObject.GetComponent<Rigidbody2D>().velocity.x, -gameObject.GetComponent<Rigidbody2D>().velocity.y + 1);
+                gameObject.GetComponent<Rigidbody2D>().velocity = new Vector2(gameObject.GetComponent<Rigidbody2D>().velocity.x, -gameObject.GetComponent<Rigidbody2D>().velocity.y + 3);
             }
             else
             {
@@ -47,29 +36,14 @@ public class AvatarMovement2D : MonoBehaviour
         }
         else if (other.tag == "OrangePlat")
         {
-            gameObject.GetComponent<Rigidbody2D>().velocity = new Vector2(0, 0);
+            gameObject.GetComponent<Rigidbody2D>().velocity = new Vector2(gameObject.GetComponent<Rigidbody2D>().velocity.x / 2, gameObject.GetComponent<Rigidbody2D>().velocity.y / 2);
             Debug.Log("Passed through Red");
         }
         else if (other.tag == "RedPlat")
         {
             Destroy(gameObject);
         }
-
-        /*if (other.tag == "Door")
-        {
-            Destroy(gameObject);
-        }*/
     }
-
-    /*private bool IsGrounded()
-    {
-        Physics2D.Raycast(gameObject.GetComponent<Rigidbody2D>().)
-    }*/
-
-    /*private void OnCollisionEnter2D(Collision2D collision)
-    {
-
-    }*/
 
     private void OnCollisionStay2D(Collision2D collision)
     {
@@ -85,8 +59,5 @@ public class AvatarMovement2D : MonoBehaviour
                     gameObject.GetComponent<Rigidbody2D>().AddForce(transform.right * 0);
             }
         }
-/*
-        transform.Translate(Vector2.right * Time.deltaTime * movementSpeed);*/
-
     }
 }
