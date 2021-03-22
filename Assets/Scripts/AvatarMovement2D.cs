@@ -13,6 +13,17 @@ public class AvatarMovement2D : MonoBehaviour
         /*Debug.Log("Avatar's vertical speed" + gameObject.GetComponent<Rigidbody2D>().velocity.y);*/
         /*if (ActiveColors.goButton == true)
             transform.Translate(Vector2.right * Time.deltaTime * movementSpeed);*/
+        /*if(IsGrounded() == true)
+        {
+            if (ActiveColors.goButton == true)
+            {
+
+                if (gameObject.GetComponent<Rigidbody2D>().velocity.x < 5)
+                    gameObject.GetComponent<Rigidbody2D>().AddForce(transform.right * 10);
+                else
+                    gameObject.GetComponent<Rigidbody2D>().AddForce(transform.right * 0);
+            }
+        }*/
     }
 
     private void OnTriggerEnter2D(Collider2D other)
@@ -50,27 +61,32 @@ public class AvatarMovement2D : MonoBehaviour
         }*/
     }
 
-    private void OnCollisionEnter2D(Collision2D collision)
+    /*private bool IsGrounded()
     {
-        
-    }
+        Physics2D.Raycast(gameObject.GetComponent<Rigidbody2D>().)
+    }*/
+
+    /*private void OnCollisionEnter2D(Collision2D collision)
+    {
+
+    }*/
 
     private void OnCollisionStay2D(Collision2D collision)
     {
-        /*Debug.Log("Collided with " + collision.gameObject.name);*/
+        Debug.Log("Collided with " + collision.gameObject.name);
         if (collision.collider.tag == "Obstacle")
         {
             if (ActiveColors.goButton == true)
             {
-                
+
                 if (gameObject.GetComponent<Rigidbody2D>().velocity.x < 5)
                     gameObject.GetComponent<Rigidbody2D>().AddForce(transform.right * 10);
                 else
                     gameObject.GetComponent<Rigidbody2D>().AddForce(transform.right * 0);
             }
         }
-
-        /*transform.Translate(Vector2.right * Time.deltaTime * movementSpeed);*/
+/*
+        transform.Translate(Vector2.right * Time.deltaTime * movementSpeed);*/
 
     }
 }
