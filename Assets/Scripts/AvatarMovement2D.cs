@@ -47,7 +47,7 @@ public class AvatarMovement2D : MonoBehaviour
 
     private void OnCollisionStay2D(Collision2D collision)
     {
-        Debug.Log("Collided with " + collision.gameObject.name);
+        /*Debug.Log("Collided with " + collision.gameObject.name);*/
         if (collision.collider.tag == "Obstacle" || collision.collider.tag == "BluePlat")
         {
             if (ActiveColors.goButton == true)
