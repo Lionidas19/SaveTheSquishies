@@ -10,6 +10,9 @@ public class CreatePlatform : MonoBehaviour, IPointerUpHandler, IPointerDownHand
     private Vector2 objectEnd;
     private bool startedPlatform = false;
     public GameObject redPlat, bluePlat, yellowPlat, orangePlat, purplePlat, greenPlat;
+
+    public Slider energySlider;
+
     /*public GameObject canvas, StartKnob;
 
     private GameObject startKnob;*/
@@ -17,7 +20,7 @@ public class CreatePlatform : MonoBehaviour, IPointerUpHandler, IPointerDownHand
     // Start is called before the first frame update
     void Start()
     {
-        
+        energySlider.value = energySlider.maxValue;
     }
 
     // Update is called once per frame
@@ -39,6 +42,7 @@ public class CreatePlatform : MonoBehaviour, IPointerUpHandler, IPointerDownHand
             if(hit.collider != null) {
                 if (hit.collider.tag == "BluePlat" || hit.collider.tag == "YellowPlat" || hit.collider.tag == "RedPlat" || hit.collider.tag == "GreenPlat" || hit.collider.tag == "OrangePlat" || hit.collider.tag == "PurplePlat")
                 {
+                    energySlider.value += hit.collider.gameObject.transform.localScale.x * 2;
                     Destroy(hit.collider.gameObject);
                 }
             }
@@ -151,7 +155,11 @@ public class CreatePlatform : MonoBehaviour, IPointerUpHandler, IPointerDownHand
                 else
                 {
                     Debug.Log("Click Lifted");
-                    MakePlatform();
+                    if(energySlider.value >= Mathf.Abs(Vector2.Distance(objectStart, objectEnd)))
+                    {
+                        MakePlatform();
+                        energySlider.value -= Mathf.Abs(Vector2.Distance(objectStart, objectEnd));
+                    }
                 }
             }
             else
@@ -162,11 +170,13 @@ public class CreatePlatform : MonoBehaviour, IPointerUpHandler, IPointerDownHand
                     Debug.Log("You messed up the starting point");
             }
         }
+        objectStart = new Vector2(100, 100);
+        objectEnd = new Vector2(100, 100);
     }
 
     void MakePlatform()
     {
-        if(objectStart!= null && objectEnd != null)
+        if(objectStart!= null && objectEnd != null && Vector2.Distance(objectStart, objectEnd) >= 0.3)
         {
             
             if(ActiveColors.blue == true && ActiveColors.red == false && ActiveColors.yellow == false)

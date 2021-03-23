@@ -1218,6 +1218,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d0351c9bf79d78c4f9f57201023330bd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  BounceStrength: 3
+  AccelerationStrength: 2
+  DecelerationStrength: 2
 --- !u!212 &441786747
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -2258,6 +2261,7 @@ MonoBehaviour:
     type: 3}
   greenPlat: {fileID: 2747629739923430674, guid: 77334ec076063874abbac7ace4709d70,
     type: 3}
+  energySlider: {fileID: 1934509474}
 --- !u!114 &1338112842
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2789,9 +2793,9 @@ MonoBehaviour:
   m_HandleRect: {fileID: 125737711}
   m_Direction: 0
   m_MinValue: 0
-  m_MaxValue: 1000
+  m_MaxValue: 10
   m_WholeNumbers: 0
-  m_Value: 1000
+  m_Value: 1
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls: []
