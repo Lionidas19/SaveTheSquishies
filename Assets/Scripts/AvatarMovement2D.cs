@@ -10,11 +10,16 @@ public class AvatarMovement2D : MonoBehaviour
     public float AccelerationStrength;
     public float DecelerationStrength;
 
+    public bool inContactWithPurplePlatform;
+    public bool allowedToTeleport;
+
     private void Start()
     {
         BounceStrength = 3;
         AccelerationStrength = 2;
         DecelerationStrength = 2;
+        inContactWithPurplePlatform = false;
+        allowedToTeleport = true;
     }
     // Update is called once per frame
     void Update()
@@ -42,16 +47,37 @@ public class AvatarMovement2D : MonoBehaviour
         else if (other.tag == "GreenPlat")
         {
             gameObject.GetComponent<Rigidbody2D>().velocity = new Vector2(gameObject.GetComponent<Rigidbody2D>().velocity.x * AccelerationStrength, gameObject.GetComponent<Rigidbody2D>().velocity.y * AccelerationStrength);
-            Debug.Log("Passed through green");
+            /*Debug.Log("Passed through green");*/
         }
         else if (other.tag == "OrangePlat")
         {
             gameObject.GetComponent<Rigidbody2D>().velocity = new Vector2(gameObject.GetComponent<Rigidbody2D>().velocity.x / DecelerationStrength, gameObject.GetComponent<Rigidbody2D>().velocity.y / DecelerationStrength);
-            Debug.Log("Passed through Red");
+            /*Debug.Log("Passed through Red");*/
         }
         else if (other.tag == "RedPlat")
         {
             Destroy(gameObject);
+        }
+        else if (other.tag == "PurplePlat")
+        {
+            if(inContactWithPurplePlatform == false)
+            {
+                inContactWithPurplePlatform = true;
+                if(allowedToTeleport == true)
+                {
+                    allowedToTeleport = false;
+                    gameObject.transform.position = other.gameObject.GetComponent<PurpleTeleport>().getTeleportPosition();
+                }
+                else
+                {
+                    allowedToTeleport = true;
+                }
+            }
+            else
+            {
+                inContactWithPurplePlatform = false;
+                allowedToTeleport = true;
+            }
         }
     }
 
