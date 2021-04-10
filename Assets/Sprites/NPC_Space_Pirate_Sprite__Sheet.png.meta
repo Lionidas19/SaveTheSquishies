@@ -1,25 +1,25 @@
 fileFormatVersion: 2
-guid: fac986abe509a814785c5d97751de512
+guid: 07e0726eab57f1b4da2052aa780e8d5e
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -2417191755820857203
-    second: Astronaut_Sprite_Sheet-02_0
+      213: -8380642853448970056
+    second: NPC_Space_Pirate_Sprite__Sheet_0
   - first:
-      213: -1959170865418039510
-    second: Astronaut_Sprite_Sheet-02_1
+      213: -1449193732455105418
+    second: NPC_Space_Pirate_Sprite__Sheet_1
   - first:
-      213: 6173033262917573326
-    second: Astronaut_Sprite_Sheet-02_2
+      213: -8994108714538405823
+    second: NPC_Space_Pirate_Sprite__Sheet_2
   - first:
-      213: -6283935475231496980
-    second: Astronaut_Sprite_Sheet-02_3
+      213: 8719830359297631842
+    second: NPC_Space_Pirate_Sprite__Sheet_3
   - first:
-      213: -2857197900382254534
-    second: Astronaut_Sprite_Sheet-02_4
+      213: 4386675745082245037
+    second: NPC_Space_Pirate_Sprite__Sheet_4
   - first:
-      213: 2015555214293816747
-    second: Astronaut_Sprite_Sheet-02_5
+      213: -5737444094181446789
+    second: NPC_Space_Pirate_Sprite__Sheet_5
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -63,7 +63,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 3000
+  spritePixelsToUnits: 500
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -117,127 +117,127 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Astronaut_Sprite_Sheet-02_0
+      name: NPC_Space_Pirate_Sprite__Sheet_0
       rect:
         serializedVersion: 2
-        x: 2228
-        y: 5290
-        width: 1152
-        height: 2511
+        x: 80
+        y: 487
+        width: 352
+        height: 565
       alignment: 9
-      pivot: {x: 0.85514873, y: 0.9507882}
+      pivot: {x: 0.49401712, y: 0.48136312}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: d888b48a7e8647ed0800000000000000
-      internalID: -2417191755820857203
+      spriteID: 8b012c23ab9f1bb80800000000000000
+      internalID: -8380642853448970056
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Astronaut_Sprite_Sheet-02_1
+      name: NPC_Space_Pirate_Sprite__Sheet_1
       rect:
         serializedVersion: 2
-        x: 3974
-        y: 5288
-        width: 1090
-        height: 2531
+        x: 587
+        y: 527
+        width: 269
+        height: 474
       alignment: 9
-      pivot: {x: 0.16218553, y: 0.94722605}
+      pivot: {x: 0.7270358, y: 0.9576233}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: a2f86706a70afc4e0800000000000000
-      internalID: -1959170865418039510
+      spriteID: 67c7a4e7afd63ebe0800000000000000
+      internalID: -1449193732455105418
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Astronaut_Sprite_Sheet-02_2
+      name: NPC_Space_Pirate_Sprite__Sheet_2
       rect:
         serializedVersion: 2
-        x: 5390
-        y: 6342
-        width: 1794
-        height: 1477
+        x: 944
+        y: 599
+        width: 268
+        height: 413
       alignment: 9
-      pivot: {x: 0.4619911, y: 0.04756428}
+      pivot: {x: 0.82217956, y: 0.9640241}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: eca5fd6eb050ba550800000000000000
-      internalID: 6173033262917573326
+      spriteID: 14071b6e6c18e2380800000000000000
+      internalID: -8994108714538405823
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Astronaut_Sprite_Sheet-02_3
+      name: NPC_Space_Pirate_Sprite__Sheet_3
       rect:
         serializedVersion: 2
-        x: 1919
-        y: 1890
-        width: 948
-        height: 2385
+        x: 1489
+        y: 519
+        width: 336
+        height: 493
       alignment: 9
-      pivot: {x: 0.75894386, y: 0.9746034}
+      pivot: {x: 0.36837733, y: 0.24796875}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: ce4e95f9af9fac8a0800000000000000
-      internalID: -6283935475231496980
+      spriteID: 2662a9b138f030970800000000000000
+      internalID: 8719830359297631842
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Astronaut_Sprite_Sheet-02_4
+      name: NPC_Space_Pirate_Sprite__Sheet_4
       rect:
         serializedVersion: 2
-        x: 3335
-        y: 1931
-        width: 838
-        height: 2303
+        x: 914
+        y: 78
+        width: 140
+        height: 343
       alignment: 9
-      pivot: {x: 0.25588852, y: 0.9796586}
+      pivot: {x: 0.87606287, y: 0.98504514}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: a3a49bec5a13958d0800000000000000
-      internalID: -2857197900382254534
+      spriteID: daff27a395a90ec30800000000000000
+      internalID: 4386675745082245037
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Astronaut_Sprite_Sheet-02_5
+      name: NPC_Space_Pirate_Sprite__Sheet_5
       rect:
         serializedVersion: 2
-        x: 5553
-        y: 2663
-        width: 1843
-        height: 2487
+        x: 1262
+        y: 52
+        width: 178
+        height: 369
       alignment: 9
-      pivot: {x: 0.5665978, y: 0.09969753}
+      pivot: {x: 0.40534955, y: 1.0022333}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: ba55b2dd9c0b8fb10800000000000000
-      internalID: 2015555214293816747
+      spriteID: b7be6af9ef08060b0800000000000000
+      internalID: -5737444094181446789
       vertices: []
       indices: 
       edges: []
