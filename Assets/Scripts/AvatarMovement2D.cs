@@ -10,8 +10,14 @@ public class AvatarMovement2D : MonoBehaviour
     public float AccelerationStrength;
     public float DecelerationStrength;
 
-    public bool inContactWithPurplePlatform;
-    public bool allowedToTeleport;
+    private bool inContactWithPurplePlatform;
+    private bool allowedToTeleport;
+
+    private bool soundPlaying;
+
+    private Animator animator;
+
+    public AudioSource footstepSource;
 
     private void Start()
     {
@@ -20,6 +26,8 @@ public class AvatarMovement2D : MonoBehaviour
         DecelerationStrength = 2;
         inContactWithPurplePlatform = false;
         allowedToTeleport = true;
+        soundPlaying = false;
+        animator = GetComponent<Animator>();
     }
     // Update is called once per frame
     void Update()
@@ -28,6 +36,23 @@ public class AvatarMovement2D : MonoBehaviour
         /*Debug.Log("Avatar's vertical speed" + gameObject.GetComponent<Rigidbody2D>().velocity.y);*/
         /*if (ActiveColors.goButton == true)
             transform.Translate(Vector2.right * Time.deltaTime * movementSpeed);*/
+        if (gameObject.GetComponent<Rigidbody2D>().velocity.y <= -1)
+        {
+            animator.SetBool("isFalling", true);
+        }
+        else
+        {
+            animator.SetBool("isFalling", false);
+        }
+
+        if (gameObject.GetComponent<Rigidbody2D>().velocity.y >= 1)
+        {
+            animator.SetBool("isBouncing", true);
+        }
+        else
+        {
+            animator.SetBool("isBouncing", false);
+        }
     }
 
     private void OnTriggerEnter2D(Collider2D other)
@@ -88,12 +113,40 @@ public class AvatarMovement2D : MonoBehaviour
         {
             if (ActiveColors.goButton == true)
             {
-
                 if (gameObject.GetComponent<Rigidbody2D>().velocity.x < 5)
                     gameObject.GetComponent<Rigidbody2D>().AddForce(transform.right * 10);
                 else
                     gameObject.GetComponent<Rigidbody2D>().AddForce(transform.right * 0);
+                if (gameObject.GetComponent<Rigidbody2D>().velocity.x > 0.1)
+                {
+                    animator.SetBool("isRunning", true);
+                    if(soundPlaying == false)
+                    {
+                        Debug.Log("Sound Started");
+                        soundPlaying = true;
+                        footstepSource.Play();
+                    }
+                }
+                else
+                {
+                    animator.SetBool("isRunning", false);
+                    if (soundPlaying == true)
+                    {
+                        soundPlaying = false;
+                        footstepSource.Stop();
+                    } 
+                }   
             }
+        }
+    }
+
+    private void OnCollisionExit2D(Collision2D collision)
+    {
+        animator.SetBool("isRunning", false);
+        if (soundPlaying == true)
+        {
+            soundPlaying = false;
+            footstepSource.Stop();
         }
     }
 }

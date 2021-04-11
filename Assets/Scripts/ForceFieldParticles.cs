@@ -9,4 +9,12 @@ public class ForceFieldParticles : MonoBehaviour
         gameObject.transform.Find("MiddleParticles-Burst").GetComponent<ParticleSystem>().Play();
         /*gameObject.GetComponent<ParticleSystem>().Play();*/
     }
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (gameObject.tag == "BluePlat")
+        {
+            gameObject.transform.Find("MiddleParticles-Burst").GetComponent<ParticleSystem>().Play();
+        }
+    }
 }
