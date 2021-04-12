@@ -42,9 +42,16 @@ public class CreatePlatform : MonoBehaviour, IPointerUpHandler, IPointerDownHand
             }*/
             RaycastHit2D hit = Physics2D.Raycast(Camera.main.ScreenToWorldPoint(Input.mousePosition), Vector2.zero);
             if(hit.collider != null) {
-                if (hit.collider.tag == "BluePlat" || hit.collider.tag == "YellowPlat" || hit.collider.tag == "RedPlat" || hit.collider.tag == "GreenPlat" || hit.collider.tag == "OrangePlat" || hit.collider.tag == "PurplePlat")
+                if (hit.collider.tag == "BluePlat" || hit.collider.tag == "YellowPlat" || hit.collider.tag == "RedPlat" || hit.collider.tag == "GreenPlat" || hit.collider.tag == "OrangePlat" )
                 {
                     energySlider.value += hit.collider.gameObject.transform.localScale.x * 2;
+                    Destroy(hit.collider.gameObject);
+                }
+                else if(hit.collider.tag == "PurplePlat")
+                {
+                    energySlider.value += hit.collider.gameObject.transform.localScale.y * 4 + Mathf.Abs(Vector2.Distance(hit.collider.gameObject.transform.localPosition, hit.collider.gameObject.GetComponent<PurpleTeleport>().getTeleportPosition()));
+                    RaycastHit2D findOtherPurple = Physics2D.Raycast(hit.collider.gameObject.GetComponent<PurpleTeleport>().getTeleportPosition(), Vector2.zero);
+                    Destroy(findOtherPurple.collider.gameObject);
                     Destroy(hit.collider.gameObject);
                 }
             }
@@ -55,6 +62,7 @@ public class CreatePlatform : MonoBehaviour, IPointerUpHandler, IPointerDownHand
     {
         if(eventData.button == PointerEventData.InputButton.Left)
         {
+
             if (ActiveColors.blue == true || ActiveColors.red == true || ActiveColors.yellow == true)
             {
                 /*Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
@@ -147,6 +155,11 @@ public class CreatePlatform : MonoBehaviour, IPointerUpHandler, IPointerDownHand
                 objectEnd = new Vector2(Camera.main.ScreenToWorldPoint(Input.mousePosition).x, Camera.main.ScreenToWorldPoint(Input.mousePosition).y);
                 Debug.Log("Platform end is (" + objectEnd.x + "," + objectEnd.y + ")");
                 /*RaycastHit2D line = Physics2D.Linecast(objectStart, objectEnd);*/
+                if (ActiveColors.blue == true && ActiveColors.red == true && ActiveColors.yellow == false)
+                {
+                    MakePlatform();
+                    energySlider.value -= Mathf.Abs(Vector2.Distance(objectStart, objectEnd));
+                }
                 if (Physics2D.Linecast(objectStart, objectEnd))
                 {
                     if (hit.collider != null)
@@ -231,6 +244,8 @@ public class CreatePlatform : MonoBehaviour, IPointerUpHandler, IPointerDownHand
                 purplePlatEnd.name = "purplePlatEnd";
                 purplePlatEnd.transform.localPosition = objectEnd;
                 purplePlatEnd.transform.localScale = new Vector2(0.1f, 2);
+
+                energySlider.value -= Mathf.Abs(purplePlatEnd.transform.localScale.y * 2 + purplePlatStart.transform.localScale.y * 2);
 
                 purplePlatStart.GetComponent<PurpleTeleport>().setTeleportPosition(purplePlatEnd.transform.localPosition);
                 purplePlatEnd.GetComponent<PurpleTeleport>().setTeleportPosition(purplePlatStart.transform.localPosition);

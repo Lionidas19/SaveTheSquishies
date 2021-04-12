@@ -36,7 +36,7 @@ public class AvatarMovement2D : MonoBehaviour
         /*Debug.Log("Avatar's vertical speed" + gameObject.GetComponent<Rigidbody2D>().velocity.y);*/
         /*if (ActiveColors.goButton == true)
             transform.Translate(Vector2.right * Time.deltaTime * movementSpeed);*/
-        if (gameObject.GetComponent<Rigidbody2D>().velocity.y <= -1)
+        if (gameObject.GetComponent<Rigidbody2D>().velocity.y <= -2)
         {
             animator.SetBool("isFalling", true);
         }
@@ -45,7 +45,7 @@ public class AvatarMovement2D : MonoBehaviour
             animator.SetBool("isFalling", false);
         }
 
-        if (gameObject.GetComponent<Rigidbody2D>().velocity.y >= 1)
+        if (gameObject.GetComponent<Rigidbody2D>().velocity.y >= 2)
         {
             animator.SetBool("isBouncing", true);
         }
