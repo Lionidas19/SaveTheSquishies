@@ -10,8 +10,8 @@ public class AvatarMovement2D : MonoBehaviour
     public float AccelerationStrength;
     public float DecelerationStrength;
 
-    private bool inContactWithPurplePlatform;
-    private bool allowedToTeleport;
+    private bool inContactWithFirstPurplePlatform;
+    private bool teleported;
 
     private bool soundPlaying;
 
@@ -24,9 +24,12 @@ public class AvatarMovement2D : MonoBehaviour
         BounceStrength = 3;
         AccelerationStrength = 2;
         DecelerationStrength = 2;
-        inContactWithPurplePlatform = false;
-        allowedToTeleport = true;
+
+        inContactWithFirstPurplePlatform = false;
+        teleported = false;
+
         soundPlaying = false;
+
         animator = GetComponent<Animator>();
     }
     // Update is called once per frame
@@ -85,23 +88,22 @@ public class AvatarMovement2D : MonoBehaviour
         }
         else if (other.tag == "PurplePlat")
         {
-            if(inContactWithPurplePlatform == false)
+            if (inContactWithFirstPurplePlatform == false && teleported == false)
             {
-                inContactWithPurplePlatform = true;
-                if(allowedToTeleport == true)
-                {
-                    allowedToTeleport = false;
-                    gameObject.transform.position = other.gameObject.GetComponent<PurpleTeleport>().getTeleportPosition();
-                }
-                else
-                {
-                    allowedToTeleport = true;
-                }
+                inContactWithFirstPurplePlatform = true;
+                gameObject.transform.position = other.gameObject.GetComponent<PurpleTeleport>().getTeleportPosition();
             }
-            else
+            else if (inContactWithFirstPurplePlatform == true && teleported == false)
             {
-                inContactWithPurplePlatform = false;
-                allowedToTeleport = true;
+                teleported = true;
+            }
+            else if (inContactWithFirstPurplePlatform == true && teleported == true)
+            {
+                inContactWithFirstPurplePlatform = false;
+            }
+            else if (inContactWithFirstPurplePlatform == false && teleported == true)
+            {
+                teleported = false;
             }
         }
     }
