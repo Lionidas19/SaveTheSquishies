@@ -1,0 +1,608 @@
+fileFormatVersion: 2
+guid: ed522b4bbbb23c3439b0122ef174bfb0
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 8095902169471670267
+    second: Laser_Projectile_Sprite_Sheet_00_0
+  - first:
+      213: 7557710215317898553
+    second: Laser_Projectile_Sprite_Sheet_00_1
+  - first:
+      213: -3827962818089457662
+    second: Laser_Projectile_Sprite_Sheet_00_2
+  - first:
+      213: 3832949858538511678
+    second: Laser_Projectile_Sprite_Sheet_00_3
+  - first:
+      213: 1787795852155411763
+    second: Laser_Projectile_Sprite_Sheet_00_4
+  - first:
+      213: 6224246897495503327
+    second: Laser_Projectile_Sprite_Sheet_00_5
+  - first:
+      213: 6504632270335822782
+    second: Laser_Projectile_Sprite_Sheet_00_6
+  - first:
+      213: -6569006387465602266
+    second: Laser_Projectile_Sprite_Sheet_00_7
+  - first:
+      213: 1745249282761016046
+    second: Laser_Projectile_Sprite_Sheet_00_8
+  - first:
+      213: 1839643996139259924
+    second: Laser_Projectile_Sprite_Sheet_00_9
+  - first:
+      213: -6759825276777688243
+    second: Laser_Projectile_Sprite_Sheet_00_10
+  - first:
+      213: -6369520087437885913
+    second: Laser_Projectile_Sprite_Sheet_00_11
+  - first:
+      213: -318953894125176628
+    second: Laser_Projectile_Sprite_Sheet_00_12
+  - first:
+      213: -591385803158613808
+    second: Laser_Projectile_Sprite_Sheet_00_13
+  - first:
+      213: -7941803939469116460
+    second: Laser_Projectile_Sprite_Sheet_00_14
+  - first:
+      213: 8571681200199782419
+    second: Laser_Projectile_Sprite_Sheet_00_15
+  - first:
+      213: -1827846505232049150
+    second: Laser_Projectile_Sprite_Sheet_00_16
+  - first:
+      213: 5707022755973734406
+    second: Laser_Projectile_Sprite_Sheet_00_17
+  - first:
+      213: 287909866588272670
+    second: Laser_Projectile_Sprite_Sheet_00_18
+  - first:
+      213: -1495733306995940530
+    second: Laser_Projectile_Sprite_Sheet_00_19
+  - first:
+      213: -696322743872097430
+    second: Laser_Projectile_Sprite_Sheet_00_20
+  externalObjects: {}
+  serializedVersion: 11
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: -1
+    mipBias: -100
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  applyGammaDecoding: 0
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: Laser_Projectile_Sprite_Sheet_00_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1711
+        width: 385
+        height: 337
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bf75ca3112c6a5070800000000000000
+      internalID: 8095902169471670267
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Laser_Projectile_Sprite_Sheet_00_1
+      rect:
+        serializedVersion: 2
+        x: 385
+        y: 1711
+        width: 385
+        height: 337
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9354d5bf56162e860800000000000000
+      internalID: 7557710215317898553
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Laser_Projectile_Sprite_Sheet_00_2
+      rect:
+        serializedVersion: 2
+        x: 770
+        y: 1711
+        width: 385
+        height: 337
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 208ef5e291850eac0800000000000000
+      internalID: -3827962818089457662
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Laser_Projectile_Sprite_Sheet_00_3
+      rect:
+        serializedVersion: 2
+        x: 1155
+        y: 1711
+        width: 385
+        height: 337
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e3d5218a69f513530800000000000000
+      internalID: 3832949858538511678
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Laser_Projectile_Sprite_Sheet_00_4
+      rect:
+        serializedVersion: 2
+        x: 1540
+        y: 1711
+        width: 385
+        height: 337
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 33dd3aafad68fc810800000000000000
+      internalID: 1787795852155411763
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Laser_Projectile_Sprite_Sheet_00_5
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1374
+        width: 385
+        height: 337
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fd1fb876397f06650800000000000000
+      internalID: 6224246897495503327
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Laser_Projectile_Sprite_Sheet_00_6
+      rect:
+        serializedVersion: 2
+        x: 385
+        y: 1374
+        width: 385
+        height: 337
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ebbc8eb3698154a50800000000000000
+      internalID: 6504632270335822782
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Laser_Projectile_Sprite_Sheet_00_7
+      rect:
+        serializedVersion: 2
+        x: 770
+        y: 1374
+        width: 385
+        height: 337
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 62b37d3ae7336d4a0800000000000000
+      internalID: -6569006387465602266
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Laser_Projectile_Sprite_Sheet_00_8
+      rect:
+        serializedVersion: 2
+        x: 1155
+        y: 1374
+        width: 385
+        height: 337
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ee2c977d9fe583810800000000000000
+      internalID: 1745249282761016046
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Laser_Projectile_Sprite_Sheet_00_9
+      rect:
+        serializedVersion: 2
+        x: 1540
+        y: 1374
+        width: 385
+        height: 337
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4188f07b77ab78910800000000000000
+      internalID: 1839643996139259924
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Laser_Projectile_Sprite_Sheet_00_10
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1037
+        width: 385
+        height: 337
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d4395f1d9b64032a0800000000000000
+      internalID: -6759825276777688243
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Laser_Projectile_Sprite_Sheet_00_11
+      rect:
+        serializedVersion: 2
+        x: 385
+        y: 1037
+        width: 385
+        height: 337
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 72ebc864a3bea97a0800000000000000
+      internalID: -6369520087437885913
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Laser_Projectile_Sprite_Sheet_00_12
+      rect:
+        serializedVersion: 2
+        x: 770
+        y: 1037
+        width: 385
+        height: 337
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cc8f0f88f19d29bf0800000000000000
+      internalID: -318953894125176628
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Laser_Projectile_Sprite_Sheet_00_13
+      rect:
+        serializedVersion: 2
+        x: 1155
+        y: 1037
+        width: 385
+        height: 337
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0d0958dceb9fac7f0800000000000000
+      internalID: -591385803158613808
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Laser_Projectile_Sprite_Sheet_00_14
+      rect:
+        serializedVersion: 2
+        x: 1540
+        y: 1037
+        width: 385
+        height: 337
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4db3520056b09c190800000000000000
+      internalID: -7941803939469116460
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Laser_Projectile_Sprite_Sheet_00_15
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 700
+        width: 385
+        height: 337
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3105dc903aab4f670800000000000000
+      internalID: 8571681200199782419
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Laser_Projectile_Sprite_Sheet_00_16
+      rect:
+        serializedVersion: 2
+        x: 385
+        y: 700
+        width: 385
+        height: 337
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 20c54bfa94f22a6e0800000000000000
+      internalID: -1827846505232049150
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Laser_Projectile_Sprite_Sheet_00_17
+      rect:
+        serializedVersion: 2
+        x: 770
+        y: 700
+        width: 385
+        height: 337
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 600a2ee95fa633f40800000000000000
+      internalID: 5707022755973734406
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Laser_Projectile_Sprite_Sheet_00_18
+      rect:
+        serializedVersion: 2
+        x: 1155
+        y: 700
+        width: 385
+        height: 337
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e18f25d8f7cdef300800000000000000
+      internalID: 287909866588272670
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Laser_Projectile_Sprite_Sheet_00_19
+      rect:
+        serializedVersion: 2
+        x: 1540
+        y: 700
+        width: 385
+        height: 337
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e4369c56b761e3be0800000000000000
+      internalID: -1495733306995940530
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Laser_Projectile_Sprite_Sheet_00_20
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 363
+        width: 385
+        height: 337
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a637a7a572a2656f0800000000000000
+      internalID: -696322743872097430
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+  spritePackingTag: 
+  pSDRemoveMatte: 0
+  pSDShowRemoveMatteOption: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

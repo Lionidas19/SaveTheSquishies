@@ -6,6 +6,6 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Scenes/Levels/Template - Do Not Edit.unity
-    guid: 57c563e94daa6de45a958cdca73c9c4b
+    path: Assets/Scenes/Prototype2_Showcase2.unity
+    guid: d150d3bb484f27a4b814756be6e915e2
   m_configObjects: {}
