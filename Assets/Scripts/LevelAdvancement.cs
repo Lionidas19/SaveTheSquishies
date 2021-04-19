@@ -2,21 +2,10 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
+using UnityEngine.SceneManagement;
 
-public class GoActive : MonoBehaviour, IPointerClickHandler
+public class LevelAdvancement : MonoBehaviour, IPointerClickHandler
 {
-
-    // Start is called before the first frame update
-    void Start()
-    {
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-
-    }
-
     public void OnPointerClick(PointerEventData pointerEventData)
     {
         if (pointerEventData.button == PointerEventData.InputButton.Left)
@@ -25,6 +14,14 @@ public class GoActive : MonoBehaviour, IPointerClickHandler
             {
                 ActiveColors.goButton = true;
                 Destroy(gameObject);
+            }
+            if(gameObject.name == "Repeat")
+            {
+                ActiveColors.blue = false;
+                ActiveColors.red = false;
+                ActiveColors.yellow = false;
+                ActiveColors.goButton = false;
+                SceneManager.LoadScene(SceneManager.GetActiveScene().name);
             }
         }
     }

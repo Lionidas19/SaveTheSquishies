@@ -65,22 +65,15 @@ public class AvatarMovement2D : MonoBehaviour
             if (gameObject.GetComponent<Rigidbody2D>().velocity.y <= 0)
             {
                 gameObject.GetComponent<Rigidbody2D>().velocity = new Vector2(gameObject.GetComponent<Rigidbody2D>().velocity.x, -gameObject.GetComponent<Rigidbody2D>().velocity.y + BounceStrength);
-            }/*
-            else
-            {
-                gameObject.GetComponent<Rigidbody2D>().velocity = new Vector2(gameObject.GetComponent<Rigidbody2D>().velocity.x, gameObject.GetComponent<Rigidbody2D>().velocity.y + 5);
-            }*/
-
+            }
         }
         else if (other.tag == "GreenPlat")
         {
             gameObject.GetComponent<Rigidbody2D>().velocity = new Vector2(gameObject.GetComponent<Rigidbody2D>().velocity.x * AccelerationStrength, gameObject.GetComponent<Rigidbody2D>().velocity.y * AccelerationStrength);
-            /*Debug.Log("Passed through green");*/
         }
         else if (other.tag == "OrangePlat")
         {
             gameObject.GetComponent<Rigidbody2D>().velocity = new Vector2(gameObject.GetComponent<Rigidbody2D>().velocity.x / DecelerationStrength, gameObject.GetComponent<Rigidbody2D>().velocity.y / DecelerationStrength);
-            /*Debug.Log("Passed through Red");*/
         }
         else if (other.tag == "RedPlat")
         {
