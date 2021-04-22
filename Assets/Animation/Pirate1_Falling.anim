@@ -114,18 +114,18 @@ AnimationClip:
         outWeight: {x: 0.33333334, y: 0.33333334, z: 0.33333334}
       - serializedVersion: 3
         time: 0.28333333
-        value: {x: 0, y: 0, z: 61.313004}
-        inSlope: {x: 0, y: 0, z: 0}
-        outSlope: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 30.632002}
+        inSlope: {x: 0, y: 0, z: 79.83377}
+        outSlope: {x: 0, y: 0, z: 79.83377}
         tangentMode: 0
         weightedMode: 0
         inWeight: {x: 0.33333334, y: 0.33333334, z: 0.33333334}
         outWeight: {x: 0.33333334, y: 0.33333334, z: 0.33333334}
       - serializedVersion: 3
         time: 0.41666666
-        value: {x: 0, y: 0, z: 21.232}
-        inSlope: {x: 0, y: 0, z: 0}
-        outSlope: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 42.521004}
+        inSlope: {x: 0, y: 0, z: 158.52002}
+        outSlope: {x: 0, y: 0, z: 158.52002}
         tangentMode: 0
         weightedMode: 0
         inWeight: {x: 0.33333334, y: 0.33333334, z: 0.33333334}
@@ -166,18 +166,18 @@ AnimationClip:
         outWeight: {x: 0.33333334, y: 0.33333334, z: 0.33333334}
       - serializedVersion: 3
         time: 0.28333333
-        value: {x: 0, y: 0, z: -76.27901}
-        inSlope: {x: 0, y: 0, z: 0}
-        outSlope: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: -60.017002}
+        inSlope: {x: 0, y: 0, z: -113.61375}
+        outSlope: {x: 0, y: 0, z: -113.61375}
         tangentMode: 0
         weightedMode: 0
         inWeight: {x: 0.33333334, y: 0.33333334, z: 0.33333334}
         outWeight: {x: 0.33333334, y: 0.33333334, z: 0.33333334}
       - serializedVersion: 3
         time: 0.41666666
-        value: {x: 0, y: 0, z: -43.759003}
-        inSlope: {x: 0, y: 0, z: 0}
-        outSlope: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: -74.056}
+        inSlope: {x: 0, y: 0, z: -187.18665}
+        outSlope: {x: 0, y: 0, z: -187.18665}
         tangentMode: 0
         weightedMode: 0
         inWeight: {x: 0.33333334, y: 0.33333334, z: 0.33333334}
@@ -756,18 +756,18 @@ AnimationClip:
         outWeight: 0.33333334
       - serializedVersion: 3
         time: 0.28333333
-        value: 61.313004
-        inSlope: 0
-        outSlope: 0
+        value: 30.632002
+        inSlope: 79.83377
+        outSlope: 79.83377
         tangentMode: 136
         weightedMode: 0
         inWeight: 0.33333334
         outWeight: 0.33333334
       - serializedVersion: 3
         time: 0.41666666
-        value: 21.232
-        inSlope: 0
-        outSlope: 0
+        value: 42.521004
+        inSlope: 158.52002
+        outSlope: 158.52002
         tangentMode: 136
         weightedMode: 0
         inWeight: 0.33333334
@@ -921,18 +921,18 @@ AnimationClip:
         outWeight: 0.33333334
       - serializedVersion: 3
         time: 0.28333333
-        value: -76.27901
-        inSlope: 0
-        outSlope: 0
+        value: -60.017002
+        inSlope: -113.61375
+        outSlope: -113.61375
         tangentMode: 136
         weightedMode: 0
         inWeight: 0.33333334
         outWeight: 0.33333334
       - serializedVersion: 3
         time: 0.41666666
-        value: -43.759003
-        inSlope: 0
-        outSlope: 0
+        value: -74.056
+        inSlope: -187.18665
+        outSlope: -187.18665
         tangentMode: 136
         weightedMode: 0
         inWeight: 0.33333334
@@ -1381,7 +1381,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalEulerAngles.z
-    path: SpacePirate_UpperBody/SpacePirate_LeftArm
+    path: SpacePirate_LeftLeg
     classID: 4
     script: {fileID: 0}
   - curve:
@@ -1391,7 +1391,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalEulerAngles.y
-    path: SpacePirate_UpperBody/SpacePirate_LeftArm
+    path: SpacePirate_LeftLeg
     classID: 4
     script: {fileID: 0}
   - curve:
@@ -1401,7 +1401,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalEulerAngles.x
-    path: SpacePirate_UpperBody/SpacePirate_LeftArm
+    path: SpacePirate_LeftLeg
     classID: 4
     script: {fileID: 0}
   - curve:
@@ -1441,7 +1441,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalEulerAngles.x
-    path: SpacePirate_LeftLeg
+    path: SpacePirate_UpperBody/SpacePirate_LeftArm
     classID: 4
     script: {fileID: 0}
   - curve:
@@ -1451,7 +1451,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalEulerAngles.y
-    path: SpacePirate_LeftLeg
+    path: SpacePirate_UpperBody/SpacePirate_LeftArm
     classID: 4
     script: {fileID: 0}
   - curve:
@@ -1461,7 +1461,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalEulerAngles.z
-    path: SpacePirate_LeftLeg
+    path: SpacePirate_UpperBody/SpacePirate_LeftArm
     classID: 4
     script: {fileID: 0}
   m_HasGenericRootTransform: 1
