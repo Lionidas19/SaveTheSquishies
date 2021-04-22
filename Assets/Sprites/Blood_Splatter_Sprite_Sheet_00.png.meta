@@ -1,0 +1,296 @@
+fileFormatVersion: 2
+guid: f97ae302cdcaccb43848c76fee4a51c9
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 4254827780984672055
+    second: Blood_Splatter_Sprite_Sheet_00_0
+  - first:
+      213: -5365742872199777102
+    second: Blood_Splatter_Sprite_Sheet_00_1
+  - first:
+      213: -8972818552168690958
+    second: Blood_Splatter_Sprite_Sheet_00_2
+  - first:
+      213: 1089999849359317251
+    second: Blood_Splatter_Sprite_Sheet_00_3
+  - first:
+      213: -196998260531316075
+    second: Blood_Splatter_Sprite_Sheet_00_6
+  - first:
+      213: 1007675670623161075
+    second: Blood_Splatter_Sprite_Sheet_00_16
+  - first:
+      213: -2011752386209159789
+    second: Blood_Splatter_Sprite_Sheet_00_17
+  - first:
+      213: 8409272542959809316
+    second: Blood_Splatter_Sprite_Sheet_00_19
+  externalObjects: {}
+  serializedVersion: 11
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: -1
+    mipBias: -100
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  applyGammaDecoding: 0
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: Blood_Splatter_Sprite_Sheet_00_0
+      rect:
+        serializedVersion: 2
+        x: 75
+        y: 153
+        width: 342
+        height: 82
+      alignment: 9
+      pivot: {x: 0.49669692, y: 0.46664453}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 73f0e02e25f2c0b30800000000000000
+      internalID: 4254827780984672055
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Blood_Splatter_Sprite_Sheet_00_1
+      rect:
+        serializedVersion: 2
+        x: 548
+        y: 153
+        width: 356
+        height: 81
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2b4b272694d0985b0800000000000000
+      internalID: -5365742872199777102
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Blood_Splatter_Sprite_Sheet_00_2
+      rect:
+        serializedVersion: 2
+        x: 1020
+        y: 153
+        width: 391
+        height: 81
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2fa43fb11152a7380800000000000000
+      internalID: -8972818552168690958
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Blood_Splatter_Sprite_Sheet_00_3
+      rect:
+        serializedVersion: 2
+        x: 1475
+        y: 153
+        width: 439
+        height: 81
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3099a428615702f00800000000000000
+      internalID: 1089999849359317251
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Blood_Splatter_Sprite_Sheet_00_6
+      rect:
+        serializedVersion: 2
+        x: 546
+        y: 39
+        width: 358
+        height: 82
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 59a39a3302f144df0800000000000000
+      internalID: -196998260531316075
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Blood_Splatter_Sprite_Sheet_00_16
+      rect:
+        serializedVersion: 2
+        x: 74
+        y: 39
+        width: 343
+        height: 82
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3fa0c4cfeabfbfd00800000000000000
+      internalID: 1007675670623161075
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Blood_Splatter_Sprite_Sheet_00_17
+      rect:
+        serializedVersion: 2
+        x: 1021
+        y: 39
+        width: 388
+        height: 82
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 39565fb0dd1d414e0800000000000000
+      internalID: -2011752386209159789
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Blood_Splatter_Sprite_Sheet_00_19
+      rect:
+        serializedVersion: 2
+        x: 1474
+        y: 39
+        width: 440
+        height: 82
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 423b096d2dcb3b470800000000000000
+      internalID: 8409272542959809316
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+  spritePackingTag: 
+  pSDRemoveMatte: 0
+  pSDShowRemoveMatteOption: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
