@@ -333,7 +333,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 306932918}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 15.847154, y: -1.2984984, z: -1.1621094}
+  m_LocalPosition: {x: 15.847154, y: -1.2984984, z: 13.67}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1849315987}
@@ -1527,6 +1527,32 @@ PrefabInstance:
       propertyPath: m_MaxValue
       value: 1000
       objectReference: {fileID: 0}
+    - target: {fileID: 2477517684124173908, guid: f87396be96ac0304e92beb56aa7b2b74,
+        type: 3}
+      propertyPath: m_Type
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2477517684124173908, guid: f87396be96ac0304e92beb56aa7b2b74,
+        type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: f8e131f3cd25d934996dc0378732b3a6,
+        type: 3}
+    - target: {fileID: 2477517684124173909, guid: f87396be96ac0304e92beb56aa7b2b74,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2477517684124173909, guid: f87396be96ac0304e92beb56aa7b2b74,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2477517684124173909, guid: f87396be96ac0304e92beb56aa7b2b74,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 2477517684133091586, guid: f87396be96ac0304e92beb56aa7b2b74,
         type: 3}
       propertyPath: m_Name
@@ -1662,6 +1688,17 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
       value: PlayOneShot
       objectReference: {fileID: 0}
+    - target: {fileID: 2477517684511282155, guid: f87396be96ac0304e92beb56aa7b2b74,
+        type: 3}
+      propertyPath: m_Type
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2477517684511282155, guid: f87396be96ac0304e92beb56aa7b2b74,
+        type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 6ba3f211cffad424b97e74a38595c5af,
+        type: 3}
     - target: {fileID: 2477517684650101285, guid: f87396be96ac0304e92beb56aa7b2b74,
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
@@ -1672,11 +1709,26 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
       value: PlayOneShot
       objectReference: {fileID: 0}
+    - target: {fileID: 2477517684825422918, guid: f87396be96ac0304e92beb56aa7b2b74,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2477517685170483777, guid: f87396be96ac0304e92beb56aa7b2b74,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2477517685210806192, guid: f87396be96ac0304e92beb56aa7b2b74,
         type: 3}
       propertyPath: energySlider
       value: 
       objectReference: {fileID: 1282719108}
+    - target: {fileID: 2477517685210806193, guid: f87396be96ac0304e92beb56aa7b2b74,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 73.6
+      objectReference: {fileID: 0}
     - target: {fileID: 2477517685670513247, guid: f87396be96ac0304e92beb56aa7b2b74,
         type: 3}
       propertyPath: m_AnchorMax.x

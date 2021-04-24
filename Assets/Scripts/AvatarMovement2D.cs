@@ -19,6 +19,9 @@ public class AvatarMovement2D : MonoBehaviour
 
     public AudioSource footstepSource;
 
+    private Vector2 previousFrameVelocity;
+    private Vector2 currentFrameVelocity;
+
     private void Start()
     {
         BounceStrength = 3;
@@ -31,6 +34,8 @@ public class AvatarMovement2D : MonoBehaviour
         soundPlaying = false;
 
         animator = GetComponent<Animator>();
+        previousFrameVelocity = Vector2.zero;
+        currentFrameVelocity = gameObject.GetComponent<Rigidbody2D>().velocity;
     }
     // Update is called once per frame
     void Update()
@@ -39,6 +44,27 @@ public class AvatarMovement2D : MonoBehaviour
         /*Debug.Log("Avatar's vertical speed" + gameObject.GetComponent<Rigidbody2D>().velocity.y);*/
         /*if (ActiveColors.goButton == true)
             transform.Translate(Vector2.right * Time.deltaTime * movementSpeed);*/
+        previousFrameVelocity = currentFrameVelocity;
+        currentFrameVelocity = gameObject.GetComponent<Rigidbody2D>().velocity;
+        /*Debug.Log("Avatar's current speed is " + gameObject.GetComponent<Rigidbody2D>().velocity.y);*/
+        
+        if (previousFrameVelocity.y < -10 && -0.5 < currentFrameVelocity.y && currentFrameVelocity.y < 0.5)
+        {
+            Destroy(gameObject);
+        }
+        else if (previousFrameVelocity.y > 10 && -0.5 < currentFrameVelocity.y && currentFrameVelocity.y < 0.5)
+        {
+            Destroy(gameObject);
+        }
+        else if (previousFrameVelocity.x < -10 && -0.5 < currentFrameVelocity.x && currentFrameVelocity.x < 0.5)
+        {
+            Destroy(gameObject);
+        }
+        else if (previousFrameVelocity.x > 10 && -0.5 < currentFrameVelocity.x && currentFrameVelocity.x < 0.5)
+        {
+            Destroy(gameObject);
+        }
+
         if (gameObject.GetComponent<Rigidbody2D>().velocity.y <= -2)
         {
             animator.SetBool("isFalling", true);
@@ -101,6 +127,30 @@ public class AvatarMovement2D : MonoBehaviour
         }
     }
 
+    /*private void OnCollisionEnter2D(Collision2D collision)
+    {
+        Debug.Log("Avatar vertical speed " + gameObject.GetComponent<Rigidbody2D>().velocity.y);
+        if (collision.collider.tag == "Obstacle" || collision.collider.tag == "BluePlat")
+        {
+            if (gameObject.GetComponent<Rigidbody2D>().velocity.y > 10)
+            {
+                Destroy(gameObject);
+            }
+            else if (gameObject.GetComponent<Rigidbody2D>().velocity.y < -1)
+            {
+                Destroy(gameObject);
+            }
+            else if (gameObject.GetComponent<Rigidbody2D>().velocity.x < -10)
+            {
+                Destroy(gameObject);
+            }
+            else if (gameObject.GetComponent<Rigidbody2D>().velocity.x > 10)
+            {
+                Destroy(gameObject);
+            }
+        }
+    }*/
+
     private void OnCollisionStay2D(Collision2D collision)
     {
         /*Debug.Log("Collided with " + collision.gameObject.name);*/
@@ -137,6 +187,7 @@ public class AvatarMovement2D : MonoBehaviour
 
     private void OnCollisionExit2D(Collision2D collision)
     {
+        Debug.Log("Exited collision");
         animator.SetBool("isRunning", false);
         if (soundPlaying == true)
         {
