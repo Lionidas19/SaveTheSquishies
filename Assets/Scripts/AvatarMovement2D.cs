@@ -15,6 +15,8 @@ public class AvatarMovement2D : MonoBehaviour
 
     private bool soundPlaying;
 
+    private bool ableToMove;
+
     private Animator animator;
 
     public AudioSource footstepSource;
@@ -33,6 +35,8 @@ public class AvatarMovement2D : MonoBehaviour
 
         soundPlaying = false;
 
+        ableToMove = true;
+
         animator = GetComponent<Animator>();
         previousFrameVelocity = Vector2.zero;
         currentFrameVelocity = gameObject.GetComponent<Rigidbody2D>().velocity;
@@ -50,7 +54,9 @@ public class AvatarMovement2D : MonoBehaviour
         
         if (previousFrameVelocity.y < -10 && -0.5 < currentFrameVelocity.y && currentFrameVelocity.y < 0.5)
         {
-            Destroy(gameObject);
+            ableToMove = false;
+            gameObject.GetComponent<Rigidbody2D>().velocity = new Vector2(0f, 0f);
+            animator.SetBool("IsSplattering", true);
         }
         else if (previousFrameVelocity.y > 10 && -0.5 < currentFrameVelocity.y && currentFrameVelocity.y < 0.5)
         {
@@ -84,9 +90,10 @@ public class AvatarMovement2D : MonoBehaviour
         }
     }
 
+
     private void OnTriggerEnter2D(Collider2D other)
     {
-        if (other.tag == "YellowPlat")
+        if (other.gameObject.tag == "YellowPlat")
         {
             if (gameObject.GetComponent<Rigidbody2D>().velocity.y <= 0)
             {
@@ -103,7 +110,11 @@ public class AvatarMovement2D : MonoBehaviour
         }
         else if (other.tag == "RedPlat")
         {
-            Destroy(gameObject);
+            ableToMove = false;
+            gameObject.GetComponent<Rigidbody2D>().velocity = new Vector2(0f, 0f);
+            animator.SetBool("IsDisintegrating", true);
+            /*animator.PlayInFixedTime("Squishy1_Death_RedFF", 1, 1f);*/
+            /*Destroy(gameObject);*/
         }
         else if (other.tag == "PurplePlat")
         {
@@ -127,36 +138,12 @@ public class AvatarMovement2D : MonoBehaviour
         }
     }
 
-    /*private void OnCollisionEnter2D(Collision2D collision)
-    {
-        Debug.Log("Avatar vertical speed " + gameObject.GetComponent<Rigidbody2D>().velocity.y);
-        if (collision.collider.tag == "Obstacle" || collision.collider.tag == "BluePlat")
-        {
-            if (gameObject.GetComponent<Rigidbody2D>().velocity.y > 10)
-            {
-                Destroy(gameObject);
-            }
-            else if (gameObject.GetComponent<Rigidbody2D>().velocity.y < -1)
-            {
-                Destroy(gameObject);
-            }
-            else if (gameObject.GetComponent<Rigidbody2D>().velocity.x < -10)
-            {
-                Destroy(gameObject);
-            }
-            else if (gameObject.GetComponent<Rigidbody2D>().velocity.x > 10)
-            {
-                Destroy(gameObject);
-            }
-        }
-    }*/
-
     private void OnCollisionStay2D(Collision2D collision)
     {
         /*Debug.Log("Collided with " + collision.gameObject.name);*/
         if (collision.collider.tag == "Obstacle" || collision.collider.tag == "BluePlat")
         {
-            if (ActiveColors.goButton == true)
+            if (ActiveColors.goButton == true && ableToMove == true)
             {
                 if (gameObject.GetComponent<Rigidbody2D>().velocity.x < 5)
                     gameObject.GetComponent<Rigidbody2D>().AddForce(transform.right * 10);
@@ -165,7 +152,7 @@ public class AvatarMovement2D : MonoBehaviour
                 if (gameObject.GetComponent<Rigidbody2D>().velocity.x > 0.1)
                 {
                     animator.SetBool("isRunning", true);
-                    if(soundPlaying == false)
+                    if (soundPlaying == false)
                     {
                         Debug.Log("Sound Started");
                         soundPlaying = true;
@@ -179,8 +166,8 @@ public class AvatarMovement2D : MonoBehaviour
                     {
                         soundPlaying = false;
                         footstepSource.Stop();
-                    } 
-                }   
+                    }
+                }
             }
         }
     }
