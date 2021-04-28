@@ -1,0 +1,320 @@
+fileFormatVersion: 2
+guid: 5bdb9df31bdbbee4dbe91fc032d8f3b7
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -444773600509037474
+    second: Squishie_electrification_Sprite_sheet_0
+  - first:
+      213: 7263014258165700078
+    second: Squishie_electrification_Sprite_sheet_1
+  - first:
+      213: -218603417609283327
+    second: Squishie_electrification_Sprite_sheet_2
+  - first:
+      213: 213067606057955090
+    second: Squishie_electrification_Sprite_sheet_3
+  - first:
+      213: -1506952071759437319
+    second: Squishie_electrification_Sprite_sheet_4
+  - first:
+      213: -7466051846316349872
+    second: Squishie_electrification_Sprite_sheet_5
+  - first:
+      213: 6386501750528028345
+    second: Squishie_electrification_Sprite_sheet_6
+  - first:
+      213: -5718443912673318129
+    second: Squishie_electrification_Sprite_sheet_7
+  - first:
+      213: 613373361074977508
+    second: Squishie_electrification_Sprite_sheet_8
+  externalObjects: {}
+  serializedVersion: 11
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: -1
+    mipBias: -100
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  applyGammaDecoding: 0
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: Squishie_electrification_Sprite_sheet_0
+      rect:
+        serializedVersion: 2
+        x: 48
+        y: 768
+        width: 363
+        height: 188
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e54ff2054c8d3d9f0800000000000000
+      internalID: -444773600509037474
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Squishie_electrification_Sprite_sheet_1
+      rect:
+        serializedVersion: 2
+        x: 484
+        y: 745
+        width: 349
+        height: 246
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ee550989cf86bc460800000000000000
+      internalID: 7263014258165700078
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Squishie_electrification_Sprite_sheet_2
+      rect:
+        serializedVersion: 2
+        x: 913
+        y: 781
+        width: 351
+        height: 175
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 10956b2995d57fcf0800000000000000
+      internalID: -218603417609283327
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Squishie_electrification_Sprite_sheet_3
+      rect:
+        serializedVersion: 2
+        x: 1342
+        y: 781
+        width: 351
+        height: 175
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 21f2a3cdbd7f4f200800000000000000
+      internalID: 213067606057955090
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Squishie_electrification_Sprite_sheet_4
+      rect:
+        serializedVersion: 2
+        x: 55
+        y: 464
+        width: 349
+        height: 246
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9f16d3d231b361be0800000000000000
+      internalID: -1506952071759437319
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Squishie_electrification_Sprite_sheet_5
+      rect:
+        serializedVersion: 2
+        x: 478
+        y: 500
+        width: 357
+        height: 175
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0562aa11761436890800000000000000
+      internalID: -7466051846316349872
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Squishie_electrification_Sprite_sheet_6
+      rect:
+        serializedVersion: 2
+        x: 907
+        y: 464
+        width: 355
+        height: 246
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9be22a5418961a850800000000000000
+      internalID: 6386501750528028345
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Squishie_electrification_Sprite_sheet_7
+      rect:
+        serializedVersion: 2
+        x: 1343
+        y: 464
+        width: 348
+        height: 246
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f0bac1d1f8104a0b0800000000000000
+      internalID: -5718443912673318129
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Squishie_electrification_Sprite_sheet_8
+      rect:
+        serializedVersion: 2
+        x: 55
+        y: 210
+        width: 353
+        height: 184
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4eabf8572d3238800800000000000000
+      internalID: 613373361074977508
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+  spritePackingTag: 
+  pSDRemoveMatte: 0
+  pSDShowRemoveMatteOption: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
