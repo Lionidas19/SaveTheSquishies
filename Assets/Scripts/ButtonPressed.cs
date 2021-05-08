@@ -2,15 +2,20 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
+using UnityEngine.UI;
 
 public class ButtonPressed : MonoBehaviour, IPointerClickHandler
 {
-    public GameObject image;
+    public Sprite pressedImage;
+    public Sprite unpressedImage;
+    public Button button;
+
+    private bool buttonActive;
 
     // Start is called before the first frame update
     void Start()
     {
-        image.SetActive(false);
+        buttonActive = false;
     }
 
     // Update is called once per frame
@@ -23,20 +28,44 @@ public class ButtonPressed : MonoBehaviour, IPointerClickHandler
     {
         if (pointerEventData.button == PointerEventData.InputButton.Left)
         {
-            if(gameObject.name == "Yellow")
+            if(gameObject.name == "YellowButton")
             {
-                image.SetActive(!image.activeSelf);
-                ActiveColors.yellow = image.activeSelf;
+                buttonActive = !buttonActive;
+                if (buttonActive == true)
+                {
+                    button.image.sprite = pressedImage;
+                }
+                else
+                {
+                    button.image.sprite = unpressedImage;
+                }
+                ActiveButtons.yellow = buttonActive;
             }
-            else if (gameObject.name == "Blue")
+            else if (gameObject.name == "BlueButton")
             {
-                image.SetActive(!image.activeSelf);
-                ActiveColors.blue = image.activeSelf;
+                buttonActive = !buttonActive;
+                if (buttonActive == true)
+                {
+                    button.image.sprite = pressedImage;
+                }
+                else
+                {
+                    button.image.sprite = unpressedImage;
+                }
+                ActiveButtons.blue = buttonActive;
             }
-            else if (gameObject.name == "Red")
+            else if (gameObject.name == "RedButton")
             {
-                image.SetActive(!image.activeSelf);
-                ActiveColors.red = image.activeSelf;
+                buttonActive = !buttonActive;
+                if (buttonActive == true)
+                {
+                    button.image.sprite = pressedImage;
+                }
+                else
+                {
+                    button.image.sprite = unpressedImage;
+                }
+                ActiveButtons.red = buttonActive;
             }
         }
     }
