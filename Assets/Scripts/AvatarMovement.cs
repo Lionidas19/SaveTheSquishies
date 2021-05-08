@@ -59,7 +59,7 @@ public class AvatarMovement : MonoBehaviour
     {
         if(collision.collider.tag != "Untagged")
         {
-            if (ActiveColors.goButton == true)
+            if (ActiveButtons.goButton == true)
             {
                 if(gameObject.GetComponent<Rigidbody>().velocity.x < 5)
                     gameObject.GetComponent<Rigidbody>().AddForce(transform.right * 10);

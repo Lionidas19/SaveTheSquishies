@@ -36,16 +36,6 @@ public class CreatePlatform : MonoBehaviour, IPointerUpHandler, IPointerDownHand
     {
         if (Input.GetKey(KeyCode.Mouse1))
         {
-            /*Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
-            RaycastHit hit;
-
-            if (Physics.Raycast(ray, out hit))
-            {
-                if (hit.collider.tag != "Obstacle" || hit.collider.tag != "Avatar")
-                {
-                    Destroy(hit.collider.gameObject);
-                }
-            }*/
             RaycastHit2D hit = Physics2D.Raycast(Camera.main.ScreenToWorldPoint(Input.mousePosition), Vector2.zero);
             if(hit.collider != null) {
                 if (hit.collider.tag == "BluePlat" || hit.collider.tag == "YellowPlat" || hit.collider.tag == "RedPlat" || hit.collider.tag == "GreenPlat" || hit.collider.tag == "OrangePlat" )
@@ -84,28 +74,8 @@ public class CreatePlatform : MonoBehaviour, IPointerUpHandler, IPointerDownHand
         if(eventData.button == PointerEventData.InputButton.Left)
         {
 
-            if (ActiveColors.blue == true || ActiveColors.red == true || ActiveColors.yellow == true)
+            if (ActiveButtons.blue == true || ActiveButtons.red == true || ActiveButtons.yellow == true)
             {
-                /*Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
-                RaycastHit hit;
-
-                objectStart = ray.origin;
-                startedPlatform = true;
-                if (Physics.Raycast(ray, out hit))
-                {
-                    if (hit.collider != null)
-                    {
-                        Debug.Log("No no no no no no no");
-                        startedPlatform = false;
-                    }
-                }
-                else
-                {
-                    Debug.Log("Clicked");
-                    *//*startKnob = Instantiate(StartKnob, canvas.transform);
-                    startKnob.transform.localPosition = objectStart;*//*
-                }*/
-
                 RaycastHit2D hit = Physics2D.Raycast(Camera.main.ScreenToWorldPoint(Input.mousePosition), Vector2.zero);
                 objectStart = new Vector2(Camera.main.ScreenToWorldPoint(Input.mousePosition).x, Camera.main.ScreenToWorldPoint(Input.mousePosition).y);
                 Debug.Log("Platform start is (" + objectStart.x + "," + objectStart.y + ")");
@@ -127,43 +97,13 @@ public class CreatePlatform : MonoBehaviour, IPointerUpHandler, IPointerDownHand
     {
         if (eventData.button == PointerEventData.InputButton.Left)
         {
-            if ((ActiveColors.blue == true || ActiveColors.red == true || ActiveColors.yellow == true) && startedPlatform == true)
+            if ((ActiveButtons.blue == true || ActiveButtons.red == true || ActiveButtons.yellow == true) && startedPlatform == true)
             {
-                /*Destroy(startKnob);*/
-                /*Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
-                RaycastHit hit;
-
-                objectEnd = ray.origin;
-                bool endPlatform = true;
-                if (Physics.Raycast(ray, out hit))
-                {
-                    if (hit.collider != null)
-                    {
-                        endPlatform = false;
-                    }
-                    else
-                    {
-                        Debug.Log("What did I say before?");
-                    }
-                }
-                else if (Physics.Linecast(objectStart, objectEnd, out hit))
-                {
-                    if (hit.collider != null)
-                    {
-                        Debug.Log("What are you doing?");
-                        endPlatform = false;
-                    }
-                }
-                else
-                {
-                    Debug.Log("Click Lifted");
-                    MakePlatform();
-                }*/
                 RaycastHit2D hit = Physics2D.Raycast(Camera.main.ScreenToWorldPoint(Input.mousePosition), Vector2.zero);
                 objectEnd = new Vector2(Camera.main.ScreenToWorldPoint(Input.mousePosition).x, Camera.main.ScreenToWorldPoint(Input.mousePosition).y);
                 Debug.Log("Platform end is (" + objectEnd.x + "," + objectEnd.y + ")");
                 /*RaycastHit2D line = Physics2D.Linecast(objectStart, objectEnd);*/
-                if (ActiveColors.blue == true && ActiveColors.red == true && ActiveColors.yellow == false)
+                if (ActiveButtons.blue == true && ActiveButtons.red == true && ActiveButtons.yellow == false)
                 {
                     MakePlatform();
                     energySlider.value -= Mathf.Abs(Vector2.Distance(objectStart, objectEnd));
@@ -187,7 +127,7 @@ public class CreatePlatform : MonoBehaviour, IPointerUpHandler, IPointerDownHand
             }
             else
             {
-                if (!(ActiveColors.blue == true || ActiveColors.red == true || ActiveColors.yellow == true))
+                if (!(ActiveButtons.blue == true || ActiveButtons.red == true || ActiveButtons.yellow == true))
                     Debug.Log("Still no color");
                 if (startedPlatform == false)
                     Debug.Log("You messed up the starting point");
@@ -202,7 +142,7 @@ public class CreatePlatform : MonoBehaviour, IPointerUpHandler, IPointerDownHand
         if(objectStart!= null && objectEnd != null && Vector2.Distance(objectStart, objectEnd) >= 0.3)
         {
             
-            if(ActiveColors.blue == true && ActiveColors.red == false && ActiveColors.yellow == false)
+            if(ActiveButtons.blue == true && ActiveButtons.red == false && ActiveButtons.yellow == false)
             {
                 GameObject BluePlatform = Instantiate(bluePlat);
                 BluePlatform.name = "BluePlatform";
@@ -210,7 +150,7 @@ public class CreatePlatform : MonoBehaviour, IPointerUpHandler, IPointerDownHand
                 BluePlatform.transform.rotation = Quaternion.Euler(0, 0, Mathf.Rad2Deg * Mathf.Atan((objectEnd.y - objectStart.y) / (objectEnd.x - objectStart.x)));
                 BluePlatform.transform.localScale = new Vector2(Vector2.Distance(objectStart, objectEnd) / 2, 0.1f);
             }
-            else if (ActiveColors.blue == false && ActiveColors.red == true && ActiveColors.yellow == false)
+            else if (ActiveButtons.blue == false && ActiveButtons.red == true && ActiveButtons.yellow == false)
             {
                 GameObject RedPlatform = Instantiate(redPlat);
                 RedPlatform.name = "RedPlatform";
@@ -218,7 +158,7 @@ public class CreatePlatform : MonoBehaviour, IPointerUpHandler, IPointerDownHand
                 RedPlatform.transform.rotation = Quaternion.Euler(0, 0, Mathf.Rad2Deg * Mathf.Atan((objectEnd.y - objectStart.y) / (objectEnd.x - objectStart.x)));
                 RedPlatform.transform.localScale = new Vector2(Vector2.Distance(objectStart, objectEnd) / 2, 0.1f);
             }
-            else if (ActiveColors.blue == false && ActiveColors.red == false && ActiveColors.yellow == true)
+            else if (ActiveButtons.blue == false && ActiveButtons.red == false && ActiveButtons.yellow == true)
             {
                 GameObject YellowPlatform = Instantiate(yellowPlat);
                 YellowPlatform.name = "YellowPlatform";
@@ -226,7 +166,7 @@ public class CreatePlatform : MonoBehaviour, IPointerUpHandler, IPointerDownHand
                 YellowPlatform.transform.rotation = Quaternion.Euler(0, 0, Mathf.Rad2Deg * Mathf.Atan((objectEnd.y - objectStart.y) / (objectEnd.x - objectStart.x)));
                 YellowPlatform.transform.localScale = new Vector2(Vector2.Distance(objectStart, objectEnd) / 2, 0.1f);
             }
-            else if (ActiveColors.blue == true && ActiveColors.red == true && ActiveColors.yellow == false)
+            else if (ActiveButtons.blue == true && ActiveButtons.red == true && ActiveButtons.yellow == false)
             {
                 purplePlatStart = Instantiate(purplePlat);
                 purplePlatStart.name = "purplePlatStart";
@@ -243,7 +183,7 @@ public class CreatePlatform : MonoBehaviour, IPointerUpHandler, IPointerDownHand
                 purplePlatStart.GetComponent<PurpleTeleport>().setTeleportPosition(purplePlatEnd.transform.localPosition);
                 purplePlatEnd.GetComponent<PurpleTeleport>().setTeleportPosition(purplePlatStart.transform.localPosition);
             }
-            else if (ActiveColors.blue == true && ActiveColors.red == false && ActiveColors.yellow == true)
+            else if (ActiveButtons.blue == true && ActiveButtons.red == false && ActiveButtons.yellow == true)
             {
                 GameObject GreenPlatform = Instantiate(greenPlat);
                 GreenPlatform.name = "GreenPlatform";
@@ -251,7 +191,7 @@ public class CreatePlatform : MonoBehaviour, IPointerUpHandler, IPointerDownHand
                 GreenPlatform.transform.rotation = Quaternion.Euler(0, 0, Mathf.Rad2Deg * Mathf.Atan((objectEnd.y - objectStart.y) / (objectEnd.x - objectStart.x)));
                 GreenPlatform.transform.localScale = new Vector2(Vector2.Distance(objectStart, objectEnd) / 2, 0.1f);
             }
-            else if (ActiveColors.blue == false && ActiveColors.red == true && ActiveColors.yellow == true)
+            else if (ActiveButtons.blue == false && ActiveButtons.red == true && ActiveButtons.yellow == true)
             {
                 GameObject OrangePlatform = Instantiate(orangePlat);
                 OrangePlatform.name = "YellowPlatform";

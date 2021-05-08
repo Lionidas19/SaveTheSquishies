@@ -4,13 +4,11 @@ using UnityEngine;
 
 public class AccessedDoor : MonoBehaviour
 {
-    public GameObject advanceButton;
-
     private void OnTriggerEnter2D(Collider2D other)
     {
         if(other.tag == "Avatar")
         {
-            Destroy(advanceButton);
+            ActiveButtons.advancebutton = true;
             Destroy(other.gameObject);
         }
     }

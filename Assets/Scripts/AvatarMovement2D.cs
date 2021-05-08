@@ -90,10 +90,10 @@ public class AvatarMovement2D : MonoBehaviour
         }
     }
 
-
     private void OnTriggerEnter2D(Collider2D other)
     {
-        if (other.gameObject.tag == "YellowPlat")
+        Debug.Log("IDK " + other.gameObject.name);
+        if (other.tag == "YellowPlat")
         {
             if (gameObject.GetComponent<Rigidbody2D>().velocity.y <= 0)
             {
@@ -143,7 +143,7 @@ public class AvatarMovement2D : MonoBehaviour
         /*Debug.Log("Collided with " + collision.gameObject.name);*/
         if (collision.collider.tag == "Obstacle" || collision.collider.tag == "BluePlat")
         {
-            if (ActiveColors.goButton == true && ableToMove == true)
+            if (ActiveButtons.goButton == true && ableToMove == true)
             {
                 if (gameObject.GetComponent<Rigidbody2D>().velocity.x < 5)
                     gameObject.GetComponent<Rigidbody2D>().AddForce(transform.right * 10);
