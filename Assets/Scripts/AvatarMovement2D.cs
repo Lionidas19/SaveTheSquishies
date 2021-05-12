@@ -58,6 +58,7 @@ public class AvatarMovement2D : MonoBehaviour
             ableToMove = false;
             gameObject.GetComponent<Rigidbody2D>().velocity = new Vector2(0f, 0f);
             gameObject.GetComponent<Collider2D>().enabled = false;
+            Destroy(gameObject.GetComponent<Rigidbody2D>());
             animator.SetBool("IsSplattering", true);
         }
         else if (previousFrameVelocity.y > 10 && -0.5 < currentFrameVelocity.y && currentFrameVelocity.y < 0.5)
