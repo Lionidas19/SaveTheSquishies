@@ -38,6 +38,16 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 7281948126916571673, guid: dc280edbb3b6f0a498466b4f2cd4ab38,
+        type: 3}
+      propertyPath: m_Antialiasing
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7281948126916571673, guid: dc280edbb3b6f0a498466b4f2cd4ab38,
+        type: 3}
+      propertyPath: m_RenderPostProcessing
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 7967865393306580845, guid: dc280edbb3b6f0a498466b4f2cd4ab38,
         type: 3}
       propertyPath: m_RootOrder
