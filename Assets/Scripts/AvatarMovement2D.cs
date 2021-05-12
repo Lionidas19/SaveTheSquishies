@@ -44,6 +44,7 @@ public class AvatarMovement2D : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        Debug.Log("Go active? " + ActiveButtons.goButton);
         /*Debug.Log("Avatar's horizontal speed" + gameObject.GetComponent<Rigidbody2D>().velocity.x);*/
         /*Debug.Log("Avatar's vertical speed" + gameObject.GetComponent<Rigidbody2D>().velocity.y);*/
         /*if (ActiveColors.goButton == true)
@@ -56,6 +57,8 @@ public class AvatarMovement2D : MonoBehaviour
         {
             ableToMove = false;
             gameObject.GetComponent<Rigidbody2D>().velocity = new Vector2(0f, 0f);
+            gameObject.GetComponent<Collider2D>().enabled = false;
+            Destroy(gameObject.GetComponent<Rigidbody2D>());
             animator.SetBool("IsSplattering", true);
         }
         else if (previousFrameVelocity.y > 10 && -0.5 < currentFrameVelocity.y && currentFrameVelocity.y < 0.5)
@@ -112,6 +115,8 @@ public class AvatarMovement2D : MonoBehaviour
         {
             ableToMove = false;
             gameObject.GetComponent<Rigidbody2D>().velocity = new Vector2(0f, 0f);
+            Destroy(gameObject.GetComponent<Rigidbody2D>());
+            gameObject.GetComponent<Collider2D>().enabled = false;
             animator.SetBool("IsDisintegrating", true);
             /*animator.PlayInFixedTime("Squishy1_Death_RedFF", 1, 1f);*/
             /*Destroy(gameObject);*/
@@ -140,10 +145,11 @@ public class AvatarMovement2D : MonoBehaviour
 
     private void OnCollisionStay2D(Collision2D collision)
     {
+        Debug.Log("In contact with somwthind");
         /*Debug.Log("Collided with " + collision.gameObject.name);*/
-        if (collision.collider.tag == "Obstacle" || collision.collider.tag == "BluePlat")
-        {
-            if (ActiveButtons.goButton == true && ableToMove == true)
+        /*if (collision.collider.tag == "Obstacle" || collision.collider.tag == "BluePlat")
+        {*/
+        if (ActiveButtons.goButton == true && ableToMove == true)
             {
                 if (gameObject.GetComponent<Rigidbody2D>().velocity.x < 5)
                     gameObject.GetComponent<Rigidbody2D>().AddForce(transform.right * 10);
@@ -169,7 +175,7 @@ public class AvatarMovement2D : MonoBehaviour
                     }
                 }
             }
-        }
+        //}
     }
 
     private void OnCollisionExit2D(Collision2D collision)

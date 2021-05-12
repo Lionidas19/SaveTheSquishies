@@ -118,10 +118,21 @@ public class CreatePlatform : MonoBehaviour, IPointerUpHandler, IPointerDownHand
                 else
                 {
                     Debug.Log("Click Lifted");
-                    if(energySlider.value >= Mathf.Abs(Vector2.Distance(objectStart, objectEnd)))
+                    if (ActiveButtons.blue == true && ActiveButtons.red == true && ActiveButtons.yellow == false)
                     {
-                        MakePlatform();
-                        energySlider.value -= Mathf.Abs(Vector2.Distance(objectStart, objectEnd));
+                        if (energySlider.value >= Mathf.Abs(Vector2.Distance(objectStart, objectEnd)) + Mathf.Abs(new Vector2(0.1f, 2f).y * 2 + new Vector2(0.1f, 2f).y * 2))
+                        {
+                            MakePlatform();
+                            energySlider.value -= Mathf.Abs(Vector2.Distance(objectStart, objectEnd));
+                        }
+                    }
+                    else
+                    {
+                        if (energySlider.value >= Mathf.Abs(Vector2.Distance(objectStart, objectEnd)))
+                        {
+                            MakePlatform();
+                            energySlider.value -= Mathf.Abs(Vector2.Distance(objectStart, objectEnd));
+                        }
                     }
                 }
             }
