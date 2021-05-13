@@ -2,9 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class AvatarMovement2D : MonoBehaviour
+public class PirateMovement : MonoBehaviour
 {
-    /*public float movementSpeed;*/
 
     public float BounceStrength;
     public float AccelerationStrength;
@@ -17,8 +16,6 @@ public class AvatarMovement2D : MonoBehaviour
 
     private bool ableToMove;
 
-    /*private bool standingOnSomething;*/
-
     private Animator animator;
 
     public AudioSource footstepSource;
@@ -28,18 +25,18 @@ public class AvatarMovement2D : MonoBehaviour
 
     private string currentState;
 
-    const string SQUISHY_IDLE = "Squishy1_Idle";
-    const string SQUISHY_RUN = "Squishy1_Running";
-    const string SQUISHY_FALL = "Squishy1_Falling";
-    const string SQUISHY_BOUNCE = "Squishy1_Bouncing";
-    const string SQUISHY_FALL_DEATH = "Squishy1_Death_Fall";
-    const string SQUISHY_WALL_DEATH = "Squishy1_Death_wall";
-    const string SQUISHY_RFF_DEATH = "Squishy1_Death_RedFF";
-    const string SQUISHY_PIRATE_DEATH = "Squishy1_Death_pirate";
-    const string SQUISHY_ELECTRIC_DEATH = "Squishy1_Death_Electricity";
-    const string SQUISHY_SHOT = "Squishy1_Death_Shot";
+    const string PIRATE_IDLE = "Pirate1_Idle";
+    const string PIRATE_RUN = "Pirate1_Running";
+    const string PIRATE_FALL = "Pirate1_Falling";
+    const string PIRATE_FALL_DEATH = "Pirate1_FallDeath";
+    const string PIRATE_WALL_DEATH = "Pirate1_WallDeath";
+    const string PIRATE_RFF_DEATH = "Pirate1_RedfieldDeath";
+    const string PIRATE_ELECTRIC_DEATH = "Pirate1_ElectricDeath";
+    const string PIRATE_ATTACK = "Pirate1_Attack";
+    const string PIRATE_BOUNCE = "Pirate1_Bouncing";
 
-    private void Start()
+    // Start is called before the first frame update
+    void Start()
     {
         BounceStrength = 3;
         AccelerationStrength = 2;
@@ -52,68 +49,61 @@ public class AvatarMovement2D : MonoBehaviour
 
         ableToMove = true;
 
-        /*standingOnSomething = false;*/
-
         animator = GetComponent<Animator>();
         previousFrameVelocity = Vector2.zero;
         currentFrameVelocity = gameObject.GetComponent<Rigidbody2D>().velocity;
     }
+
     // Update is called once per frame
     void Update()
     {
-        //Debug.Log("Go active? " + ActiveButtons.goButton);
-        /*Debug.Log("Avatar's horizontal speed" + gameObject.GetComponent<Rigidbody2D>().velocity.x);*/
-        /*Debug.Log("Avatar's vertical speed" + gameObject.GetComponent<Rigidbody2D>().velocity.y);*/
-        /*if (ActiveColors.goButton == true)
-            transform.Translate(Vector2.right * Time.deltaTime * movementSpeed);*/
         previousFrameVelocity = currentFrameVelocity;
         currentFrameVelocity = gameObject.GetComponent<Rigidbody2D>().velocity;
-        /*Debug.Log("Avatar's current speed is " + gameObject.GetComponent<Rigidbody2D>().velocity.y);*/
-        
-        if (previousFrameVelocity.y < -10 && -0.5 < currentFrameVelocity.y && currentFrameVelocity.y < 0.5)
+
+        if (previousFrameVelocity.y < -20 && -0.5 < currentFrameVelocity.y && currentFrameVelocity.y < 0.5)
         {
             Debug.Log("y negative to 0");
             ableToMove = false;
             gameObject.GetComponent<Rigidbody2D>().velocity = new Vector2(0f, 0f);
             gameObject.GetComponent<Collider2D>().enabled = false;
             Destroy(gameObject.GetComponent<Rigidbody2D>());
-            ChangeAnimationState(SQUISHY_FALL_DEATH);
+            ChangeAnimationState(PIRATE_FALL_DEATH);
         }
-        else if (previousFrameVelocity.y > 10 && -0.5 < currentFrameVelocity.y && currentFrameVelocity.y < 0.5)
+        else if (previousFrameVelocity.y > 20 && -0.5 < currentFrameVelocity.y && currentFrameVelocity.y < 0.5)
         {
             Destroy(gameObject);
         }
-        else if (previousFrameVelocity.x < -10 && -0.5 < currentFrameVelocity.x && currentFrameVelocity.x < 0.5)
+        else if (previousFrameVelocity.x < -20 && -0.5 < currentFrameVelocity.x && currentFrameVelocity.x < 0.5)
         {
-            /*ableToMove = false;
+            Debug.Log("x negative to 0");
+            ableToMove = false;
             gameObject.GetComponent<Rigidbody2D>().velocity = new Vector2(0f, 0f);
             gameObject.GetComponent<Collider2D>().enabled = false;
             Destroy(gameObject.GetComponent<Rigidbody2D>());
-            animator.SetBool("IsSmashing", true);*/
-            Debug.Log("x negative to 0");
+            ChangeAnimationState(PIRATE_WALL_DEATH);
         }
-        else if (previousFrameVelocity.x > 10 && -0.5 < currentFrameVelocity.x && currentFrameVelocity.x < 0.5)
+        else if (previousFrameVelocity.x > 20 && -0.5 < currentFrameVelocity.x && currentFrameVelocity.x < 0.5)
         {
             Debug.Log("x positive to 0");
             ableToMove = false;
             gameObject.GetComponent<Rigidbody2D>().velocity = new Vector2(0f, 0f);
             gameObject.GetComponent<Collider2D>().enabled = false;
             Destroy(gameObject.GetComponent<Rigidbody2D>());
-            ChangeAnimationState(SQUISHY_WALL_DEATH);
+            ChangeAnimationState(PIRATE_WALL_DEATH);
         }
 
-        if (gameObject.GetComponent<Rigidbody2D>().velocity.y <= -2 /*&& standingOnSomething == false*/)
+        if (gameObject.GetComponent<Rigidbody2D>().velocity.y <= -2)
         {
-            ChangeAnimationState(SQUISHY_FALL);
+            ChangeAnimationState(PIRATE_FALL);
         }
         /*else
         {
             animator.SetBool("isFalling", false);
         }*/
 
-        if (gameObject.GetComponent<Rigidbody2D>().velocity.y >= 3 /*&& standingOnSomething == false*/)
+        if (gameObject.GetComponent<Rigidbody2D>().velocity.y >= 3)
         {
-            ChangeAnimationState(SQUISHY_BOUNCE);
+            ChangeAnimationState(PIRATE_BOUNCE);
         }
         /*else
         {
@@ -145,9 +135,7 @@ public class AvatarMovement2D : MonoBehaviour
             gameObject.GetComponent<Rigidbody2D>().velocity = new Vector2(0f, 0f);
             Destroy(gameObject.GetComponent<Rigidbody2D>());
             gameObject.GetComponent<Collider2D>().enabled = false;
-            ChangeAnimationState(SQUISHY_RFF_DEATH);
-            /*animator.PlayInFixedTime("Squishy1_Death_RedFF", 1, 1f);*/
-            /*Destroy(gameObject);*/
+            ChangeAnimationState(PIRATE_RFF_DEATH);
         }
         else if (other.tag == "PurplePlat")
         {
@@ -173,38 +161,31 @@ public class AvatarMovement2D : MonoBehaviour
 
     private void OnCollisionStay2D(Collision2D collision)
     {
-       // Debug.Log("In contact with somwthind");
-        //standingOnSomething = true;
-        /*Debug.Log("Collided with " + collision.gameObject.name);*/
-        /*if (collision.collider.tag == "Obstacle" || collision.collider.tag == "BluePlat")
-        {*/
         if (ActiveButtons.goButton == true && ableToMove == true)
+        {
+            if (gameObject.GetComponent<Rigidbody2D>().velocity.x < 5)
+                gameObject.GetComponent<Rigidbody2D>().AddForce(transform.right * -17);
+            else
+                gameObject.GetComponent<Rigidbody2D>().AddForce(transform.right * 0);
+            if (gameObject.GetComponent<Rigidbody2D>().velocity.x > 0.1)
             {
-                if (gameObject.GetComponent<Rigidbody2D>().velocity.x < 5)
-                    gameObject.GetComponent<Rigidbody2D>().AddForce(transform.right * 17);
-                else
-                    gameObject.GetComponent<Rigidbody2D>().AddForce(transform.right * 0);
-                if (gameObject.GetComponent<Rigidbody2D>().velocity.x > 0.1)
+                if (soundPlaying == false)
                 {
-                    ChangeAnimationState(SQUISHY_RUN);
-                    if (soundPlaying == false)
-                    {
-                        Debug.Log("Sound Started");
-                        soundPlaying = true;
-                        footstepSource.Play();
-                    }
-                }
-                else
-                {
-                ChangeAnimationState(SQUISHY_IDLE);
-                    if (soundPlaying == true)
-                    {
-                        soundPlaying = false;
-                        footstepSource.Stop();
-                    }
+                    Debug.Log("Sound Started");
+                    soundPlaying = true;
+                    footstepSource.Play();
                 }
             }
-        //}
+            else
+            {
+                ChangeAnimationState(PIRATE_RUN);
+                if (soundPlaying == true)
+                {
+                    soundPlaying = false;
+                    footstepSource.Stop();
+                }
+            }
+        }
     }
 
     private void OnCollisionExit2D(Collision2D collision)
@@ -218,6 +199,7 @@ public class AvatarMovement2D : MonoBehaviour
             footstepSource.Stop();
         }
     }
+
     void ChangeAnimationState(string newState)
     {
         if (currentState == newState) return;
