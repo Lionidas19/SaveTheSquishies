@@ -40,7 +40,6 @@ public class ButtonPressed : MonoBehaviour, IPointerClickHandler
                     button.image.sprite = unpressedImage;
                 }
                 ActiveButtons.yellow = buttonActive;
-                Debug.Log("Yellow is " + ActiveButtons.yellow);
             }
             else if (gameObject.name == "BlueButton")
             {
@@ -54,7 +53,6 @@ public class ButtonPressed : MonoBehaviour, IPointerClickHandler
                     button.image.sprite = unpressedImage;
                 }
                 ActiveButtons.blue = buttonActive;
-                Debug.Log("Blue is " + ActiveButtons.blue);
             }
             else if (gameObject.name == "RedButton")
             {
@@ -68,7 +66,6 @@ public class ButtonPressed : MonoBehaviour, IPointerClickHandler
                     button.image.sprite = unpressedImage;
                 }
                 ActiveButtons.red = buttonActive;
-                Debug.Log("Red is " + ActiveButtons.red);
             }
         }
     }
