@@ -169,6 +169,15 @@ public class AvatarMovement2D : MonoBehaviour
                 teleported = false;
             }
         }
+
+        if(other.tag == "Door")
+        {
+            ActiveButtons.advancebutton = true;
+            ableToMove = false;
+            gameObject.GetComponent<Rigidbody2D>().velocity = new Vector2(0f, 0f);
+            Animator doorAnim = other.gameObject.GetComponent<Animator>();
+            doorAnim.Play("Exit_Hatch1");
+        }
     }
 
     private void OnCollisionStay2D(Collision2D collision)

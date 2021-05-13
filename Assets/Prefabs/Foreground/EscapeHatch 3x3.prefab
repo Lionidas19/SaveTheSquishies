@@ -12,10 +12,9 @@ GameObject:
   - component: {fileID: 1874846890520070745}
   - component: {fileID: 1628279291758643681}
   - component: {fileID: 41992055808603071}
-  - component: {fileID: 6368838820124120097}
   m_Layer: 0
   m_Name: EscapeHatch 3x3
-  m_TagString: Untagged
+  m_TagString: Door
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -71,8 +70,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 834853477
-  m_SortingLayer: 3
+  m_SortingLayerID: 964033449
+  m_SortingLayer: 1
   m_SortingOrder: 10
   m_Sprite: {fileID: 21300000, guid: 82dbf67203b05dd499e8822d5916075e, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -130,18 +129,6 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
---- !u!114 &6368838820124120097
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 707642969769894049}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 537d03f3e40902142b1e5371a0aec524, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &7798277907214360583
 GameObject:
   m_ObjectHideFlags: 0
