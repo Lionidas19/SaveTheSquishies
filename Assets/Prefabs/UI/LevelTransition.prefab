@@ -91,6 +91,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7593934786002257588}
   - component: {fileID: 7593934786002257589}
+  - component: {fileID: 2617096975620634620}
   m_Layer: 0
   m_Name: LevelTransition
   m_TagString: Untagged
@@ -133,6 +134,18 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &2617096975620634620
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7593934786002257590}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 09a321520ad515e4a9f1e7b897be4885, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &7593934787110672282
 GameObject:
   m_ObjectHideFlags: 0

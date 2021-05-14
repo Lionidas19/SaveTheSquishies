@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: -5249471200391370172}
   - component: {fileID: 5803738741795236339}
   - component: {fileID: 6045032737461754357}
+  - component: {fileID: 488101802171633499}
   m_Layer: 0
   m_Name: SpacePirate_Character
   m_TagString: Untagged
@@ -96,6 +97,22 @@ CapsuleCollider2D:
   m_Offset: {x: -0.034163833, y: 0.034163713}
   m_Size: {x: 1.0368612, y: 2.0639606}
   m_Direction: 0
+--- !u!114 &488101802171633499
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 295481431146463864}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c340ba298ccfc5b48aa84eeeae1b305c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  BounceStrength: 0
+  AccelerationStrength: 0
+  DecelerationStrength: 0
+  footstepSource: {fileID: 0}
 --- !u!1 &653756959090176268
 GameObject:
   m_ObjectHideFlags: 0

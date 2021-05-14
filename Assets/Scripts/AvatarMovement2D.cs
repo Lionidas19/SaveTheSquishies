@@ -176,7 +176,7 @@ public class AvatarMovement2D : MonoBehaviour
             ableToMove = false;
             gameObject.GetComponent<Rigidbody2D>().velocity = new Vector2(0f, 0f);
             Animator doorAnim = other.gameObject.GetComponent<Animator>();
-            doorAnim.Play("Exit_Hatch1");
+            doorAnim.Play("Exit_Hatch_close1");
         }
     }
 
