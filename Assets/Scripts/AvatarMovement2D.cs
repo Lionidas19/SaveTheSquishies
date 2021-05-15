@@ -70,7 +70,8 @@ public class AvatarMovement2D : MonoBehaviour
         currentFrameVelocity = gameObject.GetComponent<Rigidbody2D>().velocity;
         /*Debug.Log("Avatar's current speed is " + gameObject.GetComponent<Rigidbody2D>().velocity.y);*/
         
-        if (previousFrameVelocity.y < -10 && -0.5 < currentFrameVelocity.y && currentFrameVelocity.y < 0.5)
+//CHRIS added able to move to avoid triggering if already dead
+        if (previousFrameVelocity.y < -10 && -0.5 < currentFrameVelocity.y && currentFrameVelocity.y < 0.5 && ableToMove == true) 
         {
             Debug.Log("y negative to 0");
             ableToMove = false;
@@ -97,11 +98,12 @@ public class AvatarMovement2D : MonoBehaviour
             Debug.Log("x positive to 0");
             ableToMove = false;
             gameObject.GetComponent<Rigidbody2D>().velocity = new Vector2(0f, 0f);
+//CHRIS commented out so dead squishy doesn't hang in mid air    
             //CHRIS gameObject.GetComponent<Collider2D>().enabled = false;
            //CHRIS Destroy(gameObject.GetComponent<Rigidbody2D>());
             ChangeAnimationState(SQUISHY_WALL_DEATH);
         }
-        //Chris added ableToMove so this animation does not play when he is already dead
+//Chris added ableToMove so this animation does not play when he is already dead
         if (gameObject.GetComponent<Rigidbody2D>().velocity.y <= -2 /*&& standingOnSomething == false*/ && ableToMove == true)
         {
             ChangeAnimationState(SQUISHY_FALL);
@@ -143,8 +145,9 @@ public class AvatarMovement2D : MonoBehaviour
         {
             ableToMove = false;
             gameObject.GetComponent<Rigidbody2D>().velocity = new Vector2(0f, 0f);
-            Destroy(gameObject.GetComponent<Rigidbody2D>());
-            gameObject.GetComponent<Collider2D>().enabled = false;
+ //CHRIS commented out so dead squishy doesn't hang in mid air
+            //CHRIS Destroy(gameObject.GetComponent<Rigidbody2D>());
+            //CHRIS gameObject.GetComponent<Collider2D>().enabled = false;
             ChangeAnimationState(SQUISHY_RFF_DEATH);
             /*animator.PlayInFixedTime("Squishy1_Death_RedFF", 1, 1f);*/
             /*Destroy(gameObject);*/
