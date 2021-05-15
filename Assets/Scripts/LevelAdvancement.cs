@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
-using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class LevelAdvancement : MonoBehaviour, IPointerClickHandler
@@ -25,7 +24,8 @@ public class LevelAdvancement : MonoBehaviour, IPointerClickHandler
                 ActiveButtons.red = false;
                 ActiveButtons.yellow = false;
                 ActiveButtons.goButton = false;
-                SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+                ActiveButtons.resetButton = true;
+                /*SceneManager.LoadScene(SceneManager.GetActiveScene().name);*/
             }
             if(gameObject.name == "AdvanceButton")
             {

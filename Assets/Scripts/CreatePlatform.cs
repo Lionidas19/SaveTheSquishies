@@ -36,105 +36,133 @@ public class CreatePlatform : MonoBehaviour, IPointerUpHandler, IPointerDownHand
     {
         if (Input.GetKey(KeyCode.Mouse1))
         {
-            RaycastHit2D hit = Physics2D.Raycast(Camera.main.ScreenToWorldPoint(Input.mousePosition), Vector2.zero);
-            if(hit.collider != null) {
-                if (hit.collider.tag == "BluePlat" || hit.collider.tag == "YellowPlat" || hit.collider.tag == "RedPlat" || hit.collider.tag == "GreenPlat" || hit.collider.tag == "OrangePlat" )
+            if(ActiveButtons.goButton == false)
+            {
+                RaycastHit2D hit = Physics2D.Raycast(Camera.main.ScreenToWorldPoint(Input.mousePosition), Vector2.zero);
+                if (hit.collider != null)
                 {
-                    energySlider.value += hit.collider.gameObject.transform.localScale.x * 2;
-                    Destroy(hit.collider.gameObject);
-                }
-                else if(hit.collider.tag == "PurplePlat")
-                {
-                    energySlider.value += hit.collider.gameObject.transform.localScale.y * 4 + Mathf.Abs(Vector2.Distance(hit.collider.gameObject.transform.localPosition, hit.collider.gameObject.GetComponent<PurpleTeleport>().getTeleportPosition()));
-                    RaycastHit2D findOtherPurple = Physics2D.Raycast(hit.collider.gameObject.GetComponent<PurpleTeleport>().getTeleportPosition(), Vector2.zero);
-                    Destroy(findOtherPurple.collider.gameObject);
-                    Destroy(hit.collider.gameObject);
+                    if (hit.collider.tag == "BluePlat" || hit.collider.tag == "YellowPlat" || hit.collider.tag == "RedPlat" || hit.collider.tag == "GreenPlat" || hit.collider.tag == "OrangePlat")
+                    {
+                        energySlider.value += hit.collider.gameObject.transform.localScale.x * 2;
+                        Destroy(hit.collider.gameObject);
+                    }
+                    else if (hit.collider.tag == "PurplePlat")
+                    {
+                        energySlider.value += hit.collider.gameObject.transform.localScale.y * 4 + Mathf.Abs(Vector2.Distance(hit.collider.gameObject.transform.localPosition, hit.collider.gameObject.GetComponent<PurpleTeleport>().getTeleportPosition()));
+                        RaycastHit2D findOtherPurple = Physics2D.Raycast(hit.collider.gameObject.GetComponent<PurpleTeleport>().getTeleportPosition(), Vector2.zero);
+                        Destroy(findOtherPurple.collider.gameObject);
+                        Destroy(hit.collider.gameObject);
+                    }
                 }
             }
         }
         if (Input.GetMouseButtonDown(0))
         {
-            lineRenderer.SetPosition(0, new Vector3(Camera.main.ScreenToWorldPoint(Input.mousePosition).x, Camera.main.ScreenToWorldPoint(Input.mousePosition).y, 0));
-            lineRenderer.SetVertexCount(1);
-            lineRenderer.enabled = true;
+            if (ActiveButtons.goButton == false) 
+            {
+                lineRenderer.SetPosition(0, new Vector3(Camera.main.ScreenToWorldPoint(Input.mousePosition).x, Camera.main.ScreenToWorldPoint(Input.mousePosition).y, 0));
+                lineRenderer.SetVertexCount(1);
+                lineRenderer.enabled = true;
+            }   
         }
         else if (Input.GetMouseButton(0))
         {
-            lineRenderer.SetVertexCount(2);
-            lineRenderer.SetPosition(1, new Vector3(Camera.main.ScreenToWorldPoint(Input.mousePosition).x, Camera.main.ScreenToWorldPoint(Input.mousePosition).y, 0));
+            if (ActiveButtons.goButton == false)
+            {
+                lineRenderer.SetVertexCount(2);
+                lineRenderer.SetPosition(1, new Vector3(Camera.main.ScreenToWorldPoint(Input.mousePosition).x, Camera.main.ScreenToWorldPoint(Input.mousePosition).y, 0));
+            }                
         }
         else if (Input.GetMouseButtonUp(0))
         {
-            lineRenderer.enabled = false;
+            if (ActiveButtons.goButton == false)
+                lineRenderer.enabled = false;
         }
     }
 
     public void OnPointerDown(PointerEventData eventData)
     {
-        if(eventData.button == PointerEventData.InputButton.Left)
+        if (ActiveButtons.goButton == false)
         {
+            if (eventData.button == PointerEventData.InputButton.Left)
+            {
 
-            if (ActiveButtons.blue == true || ActiveButtons.red == true || ActiveButtons.yellow == true)
-            {
-                RaycastHit2D hit = Physics2D.Raycast(Camera.main.ScreenToWorldPoint(Input.mousePosition), Vector2.zero);
-                objectStart = new Vector2(Camera.main.ScreenToWorldPoint(Input.mousePosition).x, Camera.main.ScreenToWorldPoint(Input.mousePosition).y);
-                Debug.Log("Platform start is (" + objectStart.x + "," + objectStart.y + ")");
-                startedPlatform = true;
-                if (hit.collider != null)
+                if (ActiveButtons.blue == true || ActiveButtons.red == true || ActiveButtons.yellow == true)
                 {
-                    Debug.Log("No no no no no no no");
-                    startedPlatform = false;
-                }
-            }
-            else
-            {
-                Debug.Log("Select a color dumbass");
-            }
-        }
-    }
-
-    public void OnPointerUp(PointerEventData eventData)
-    {
-        if (eventData.button == PointerEventData.InputButton.Left)
-        {
-            if ((ActiveButtons.blue == true || ActiveButtons.red == true || ActiveButtons.yellow == true) && startedPlatform == true)
-            {
-                RaycastHit2D hit = Physics2D.Raycast(Camera.main.ScreenToWorldPoint(Input.mousePosition), Vector2.zero);
-                objectEnd = new Vector2(Camera.main.ScreenToWorldPoint(Input.mousePosition).x, Camera.main.ScreenToWorldPoint(Input.mousePosition).y);
-                Debug.Log("Platform end is (" + objectEnd.x + "," + objectEnd.y + ")");
-                /*RaycastHit2D line = Physics2D.Linecast(objectStart, objectEnd);*/
-                if (ActiveButtons.blue == true && ActiveButtons.red == true && ActiveButtons.yellow == false)
-                {
-                    MakePlatform();
-                    energySlider.value -= Mathf.Abs(Vector2.Distance(objectStart, objectEnd));
-                }
-                if (Physics2D.Linecast(objectStart, objectEnd))
-                {
+                    RaycastHit2D hit = Physics2D.Raycast(Camera.main.ScreenToWorldPoint(Input.mousePosition), Vector2.zero);
+                    objectStart = new Vector2(Camera.main.ScreenToWorldPoint(Input.mousePosition).x, Camera.main.ScreenToWorldPoint(Input.mousePosition).y);
+                    Debug.Log("Platform start is (" + objectStart.x + "," + objectStart.y + ")");
+                    startedPlatform = true;
                     if (hit.collider != null)
                     {
-                        Debug.Log("What are you doing?");
+                        Debug.Log("No no no no no no no");
+                        startedPlatform = false;
                     }
                 }
                 else
                 {
-                    Debug.Log("Click Lifted");
-                    if(energySlider.value >= Mathf.Abs(Vector2.Distance(objectStart, objectEnd)))
+                    Debug.Log("Select a color dumbass");
+                }
+            }
+        }   
+    }
+
+    public void OnPointerUp(PointerEventData eventData)
+    {
+        if (ActiveButtons.goButton == false)
+        {
+            if (eventData.button == PointerEventData.InputButton.Left)
+            {
+                if ((ActiveButtons.blue == true || ActiveButtons.red == true || ActiveButtons.yellow == true) && startedPlatform == true)
+                {
+                    RaycastHit2D hit = Physics2D.Raycast(Camera.main.ScreenToWorldPoint(Input.mousePosition), Vector2.zero);
+                    objectEnd = new Vector2(Camera.main.ScreenToWorldPoint(Input.mousePosition).x, Camera.main.ScreenToWorldPoint(Input.mousePosition).y);
+                    Debug.Log("Platform end is (" + objectEnd.x + "," + objectEnd.y + ")");
+                    /*RaycastHit2D line = Physics2D.Linecast(objectStart, objectEnd);*/
+                    if (ActiveButtons.blue == true && ActiveButtons.red == true && ActiveButtons.yellow == false)
                     {
                         MakePlatform();
                         energySlider.value -= Mathf.Abs(Vector2.Distance(objectStart, objectEnd));
                     }
+                    if (Physics2D.Linecast(objectStart, objectEnd))
+                    {
+                        if (hit.collider != null)
+                        {
+                            Debug.Log("What are you doing?");
+                        }
+                    }
+                    else
+                    {
+                        Debug.Log("Click Lifted");
+                        if (ActiveButtons.blue == true && ActiveButtons.red == true && ActiveButtons.yellow == false)
+                        {
+                            if (energySlider.value >= Mathf.Abs(Vector2.Distance(objectStart, objectEnd)) + Mathf.Abs(new Vector2(0.1f, 2f).y * 2 + new Vector2(0.1f, 2f).y * 2))
+                            {
+                                MakePlatform();
+                                energySlider.value -= Mathf.Abs(Vector2.Distance(objectStart, objectEnd));
+                            }
+                        }
+                        else
+                        {
+                            if (energySlider.value >= Mathf.Abs(Vector2.Distance(objectStart, objectEnd)))
+                            {
+                                MakePlatform();
+                                energySlider.value -= Mathf.Abs(Vector2.Distance(objectStart, objectEnd));
+                            }
+                        }
+                    }
+                }
+                else
+                {
+                    if (!(ActiveButtons.blue == true || ActiveButtons.red == true || ActiveButtons.yellow == true))
+                        Debug.Log("Still no color");
+                    if (startedPlatform == false)
+                        Debug.Log("You messed up the starting point");
                 }
             }
-            else
-            {
-                if (!(ActiveButtons.blue == true || ActiveButtons.red == true || ActiveButtons.yellow == true))
-                    Debug.Log("Still no color");
-                if (startedPlatform == false)
-                    Debug.Log("You messed up the starting point");
-            }
+            objectStart = new Vector2(100, 100);
+            objectEnd = new Vector2(100, 100);
         }
-        objectStart = new Vector2(100, 100);
-        objectEnd = new Vector2(100, 100);
     }
 
     void MakePlatform()

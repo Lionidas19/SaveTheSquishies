@@ -9,5 +9,6 @@ public static class ActiveButtons
     public static bool red = false;
 
     public static bool goButton = false;
+    public static bool resetButton = false;
     public static bool advancebutton = false;
 }
