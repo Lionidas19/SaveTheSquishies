@@ -97,12 +97,12 @@ public class AvatarMovement2D : MonoBehaviour
             Debug.Log("x positive to 0");
             ableToMove = false;
             gameObject.GetComponent<Rigidbody2D>().velocity = new Vector2(0f, 0f);
-            gameObject.GetComponent<Collider2D>().enabled = false;
-            Destroy(gameObject.GetComponent<Rigidbody2D>());
+            //CHRIS gameObject.GetComponent<Collider2D>().enabled = false;
+           //CHRIS Destroy(gameObject.GetComponent<Rigidbody2D>());
             ChangeAnimationState(SQUISHY_WALL_DEATH);
         }
-
-        if (gameObject.GetComponent<Rigidbody2D>().velocity.y <= -2 /*&& standingOnSomething == false*/)
+        //Chris added ableToMove so this animation does not play when he is already dead
+        if (gameObject.GetComponent<Rigidbody2D>().velocity.y <= -2 /*&& standingOnSomething == false*/ && ableToMove == true)
         {
             ChangeAnimationState(SQUISHY_FALL);
         }
