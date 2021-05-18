@@ -19611,7 +19611,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 7ecd05e75c8960746a474b0856fb54f5, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 6ba3f211cffad424b97e74a38595c5af, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -19650,7 +19650,7 @@ MonoBehaviour:
     m_FadeDuration: 0.1
   m_SpriteState:
     m_HighlightedSprite: {fileID: 0}
-    m_PressedSprite: {fileID: 0}
+    m_PressedSprite: {fileID: 21300000, guid: 7ecd05e75c8960746a474b0856fb54f5, type: 3}
     m_SelectedSprite: {fileID: 21300000, guid: 40a70a783f8e6d646a75c0972bfd6a37, type: 3}
     m_DisabledSprite: {fileID: 0}
   m_AnimationTriggers:
@@ -20090,7 +20090,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 6ed92cf23aa03b64c966cfbdabf97626, type: 3}
+  m_Sprite: {fileID: 21300000, guid: b9fa02983d410ec4ea326889577eb579, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -20129,7 +20129,7 @@ MonoBehaviour:
     m_FadeDuration: 0.1
   m_SpriteState:
     m_HighlightedSprite: {fileID: 0}
-    m_PressedSprite: {fileID: 0}
+    m_PressedSprite: {fileID: 21300000, guid: 6ed92cf23aa03b64c966cfbdabf97626, type: 3}
     m_SelectedSprite: {fileID: 21300000, guid: b9fa02983d410ec4ea326889577eb579, type: 3}
     m_DisabledSprite: {fileID: 0}
   m_AnimationTriggers:
@@ -20327,7 +20327,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &6412207216407941046
 RectTransform:
   m_ObjectHideFlags: 0
@@ -20374,7 +20374,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 0a5d5de659bed96489614dc278b57fbe, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 40a70a783f8e6d646a75c0972bfd6a37, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -20413,7 +20413,7 @@ MonoBehaviour:
     m_FadeDuration: 0.1
   m_SpriteState:
     m_HighlightedSprite: {fileID: 0}
-    m_PressedSprite: {fileID: 0}
+    m_PressedSprite: {fileID: 21300000, guid: 0a5d5de659bed96489614dc278b57fbe, type: 3}
     m_SelectedSprite: {fileID: 21300000, guid: 40a70a783f8e6d646a75c0972bfd6a37, type: 3}
     m_DisabledSprite: {fileID: 0}
   m_AnimationTriggers:
