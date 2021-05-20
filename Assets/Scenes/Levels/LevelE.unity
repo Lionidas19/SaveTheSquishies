@@ -3260,7 +3260,7 @@ PrefabInstance:
     - target: {fileID: 453116082660933403, guid: f26f85190338d14429bbf2a0b5aae99a,
         type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f26f85190338d14429bbf2a0b5aae99a, type: 3}
@@ -3474,6 +3474,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Background_Image1
+      objectReference: {fileID: 0}
+    - target: {fileID: 453116082660933403, guid: 99175fac183ecea43a64e1fbd0ef640b,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 99175fac183ecea43a64e1fbd0ef640b, type: 3}
