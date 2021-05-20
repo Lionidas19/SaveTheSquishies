@@ -122,11 +122,11 @@ public class CreatePlatform : MonoBehaviour, IPointerUpHandler, IPointerDownHand
                     objectEnd = new Vector2(Camera.main.ScreenToWorldPoint(Input.mousePosition).x, Camera.main.ScreenToWorldPoint(Input.mousePosition).y);
                     Debug.Log("Platform end is (" + objectEnd.x + "," + objectEnd.y + ")");
                     /*RaycastHit2D line = Physics2D.Linecast(objectStart, objectEnd);*/
-                    if (ActiveButtons.blue == true && ActiveButtons.red == true && ActiveButtons.yellow == false)
+                    /*if (ActiveButtons.blue == true && ActiveButtons.red == true && ActiveButtons.yellow == false)
                     {
                         MakePlatform();
                         energySlider.value -= Mathf.Abs(Vector2.Distance(objectStart, objectEnd));
-                    }
+                    }*/
                     if (Physics2D.Linecast(objectStart, objectEnd))
                     {
                         if (hit.collider != null)
