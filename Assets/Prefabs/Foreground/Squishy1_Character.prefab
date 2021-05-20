@@ -613,7 +613,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: 80a6dbcc5487f0c4f8404357b6d02dc6, type: 3}
+  m_audioClip: {fileID: 8300000, guid: bc92c1ee36421cf4389024842e6f35ce, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
@@ -1150,11 +1150,11 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1711588166084888241}
-  - component: {fileID: 5395217545588799124}
   - component: {fileID: 3939117259411289695}
-  - component: {fileID: 5033303966531415441}
-  - component: {fileID: 8973452501966475351}
+  - component: {fileID: 5395217545588799124}
+  - component: {fileID: 4994665913654904235}
   - component: {fileID: 7217570790742086544}
+  - component: {fileID: 455156902408072014}
   m_Layer: 0
   m_Name: Squishy1_Character
   m_TagString: Avatar
@@ -1186,25 +1186,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!95 &5395217545588799124
-Animator:
-  serializedVersion: 3
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 9064285673433032517}
-  m_Enabled: 1
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 11680422897fcfd49b946e4c92e83429, type: 2}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!50 &3939117259411289695
 Rigidbody2D:
   serializedVersion: 4
@@ -1226,23 +1207,26 @@ Rigidbody2D:
   m_SleepingMode: 0
   m_CollisionDetection: 0
   m_Constraints: 4
---- !u!70 &5033303966531415441
-CapsuleCollider2D:
+--- !u!95 &5395217545588799124
+Animator:
+  serializedVersion: 3
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 9064285673433032517}
   m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0.25}
-  m_Size: {x: 1, y: 2}
-  m_Direction: 0
---- !u!114 &8973452501966475351
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 11680422897fcfd49b946e4c92e83429, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &4994665913654904235
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1257,6 +1241,7 @@ MonoBehaviour:
   BounceStrength: 0
   AccelerationStrength: 0
   DecelerationStrength: 0
+  MaximumSpeed: 0
   footstepSource: {fileID: 4503646634688405749}
 --- !u!212 &7217570790742086544
 SpriteRenderer:
@@ -1308,3 +1293,29 @@ SpriteRenderer:
   m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!61 &455156902408072014
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9064285673433032517}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0.19}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0, y: 0}
+    oldSize: {x: 0, y: 0}
+    newSize: {x: 0, y: 0}
+    adaptiveTilingThreshold: 0
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 0.6, y: 1.83}
+  m_EdgeRadius: 0

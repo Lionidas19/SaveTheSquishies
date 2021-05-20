@@ -4,11 +4,10 @@ using UnityEngine;
 
 public class AvatarMovement2D : MonoBehaviour
 {
-    /*public float movementSpeed;*/
-
     public float BounceStrength;
     public float AccelerationStrength;
     public float DecelerationStrength;
+    public float MaximumSpeed;
 
     private bool inContactWithFirstPurplePlatform;
     private bool teleported;
@@ -17,17 +16,17 @@ public class AvatarMovement2D : MonoBehaviour
 
     private bool ableToMove;
 
-    /*private bool standingOnSomething;*/
-
     private Animator animator;
 
     public AudioSource footstepSource;
 
+    //Variables to store the squishy's velocity each currnet and previous frame 
     private Vector2 previousFrameVelocity;
     private Vector2 currentFrameVelocity;
 
     private string currentState;
 
+    //Animation names for the Squishy
     const string SQUISHY_IDLE = "Squishy1_Idle";
     const string SQUISHY_RUN = "Squishy1_Running";
     const string SQUISHY_FALL = "Squishy1_Falling";
@@ -44,6 +43,7 @@ public class AvatarMovement2D : MonoBehaviour
         BounceStrength = 3;
         AccelerationStrength = 2;
         DecelerationStrength = 2;
+        MaximumSpeed = 10;
 
         inContactWithFirstPurplePlatform = false;
         teleported = false;
@@ -52,32 +52,24 @@ public class AvatarMovement2D : MonoBehaviour
 
         ableToMove = true;
 
-        /*standingOnSomething = false;*/
-
         animator = GetComponent<Animator>();
         previousFrameVelocity = Vector2.zero;
         currentFrameVelocity = gameObject.GetComponent<Rigidbody2D>().velocity;
     }
+
     // Update is called once per frame
     void Update()
     {
-        //Debug.Log("Go active? " + ActiveButtons.goButton);
-        /*Debug.Log("Avatar's horizontal speed" + gameObject.GetComponent<Rigidbody2D>().velocity.x);*/
-        /*Debug.Log("Avatar's vertical speed" + gameObject.GetComponent<Rigidbody2D>().velocity.y);*/
-        /*if (ActiveColors.goButton == true)
-            transform.Translate(Vector2.right * Time.deltaTime * movementSpeed);*/
+        /*Debug.Log("Avatar's horizontal speed" + gameObject.GetComponent<Rigidbody2D>().velocity.x);
+        Debug.Log("Avatar's vertical speed" + gameObject.GetComponent<Rigidbody2D>().velocity.y);*/
         previousFrameVelocity = currentFrameVelocity;
         currentFrameVelocity = gameObject.GetComponent<Rigidbody2D>().velocity;
-        /*Debug.Log("Avatar's current speed is " + gameObject.GetComponent<Rigidbody2D>().velocity.y);*/
         
-//CHRIS added able to move to avoid triggering if already dead
+        //If the squishy is falling with a vertical velocity exceeding -10 and they hit the ground they die
         if (previousFrameVelocity.y < -10 && -0.5 < currentFrameVelocity.y && currentFrameVelocity.y < 0.5 && ableToMove == true) 
         {
-            Debug.Log("y negative to 0");
             ableToMove = false;
             gameObject.GetComponent<Rigidbody2D>().velocity = new Vector2(0f, 0f);
-            gameObject.GetComponent<Collider2D>().enabled = false;
-            Destroy(gameObject.GetComponent<Rigidbody2D>());
             ChangeAnimationState(SQUISHY_FALL_DEATH);
         }
         else if (previousFrameVelocity.y > 10 && -0.5 < currentFrameVelocity.y && currentFrameVelocity.y < 0.5)
@@ -86,11 +78,6 @@ public class AvatarMovement2D : MonoBehaviour
         }
         else if (previousFrameVelocity.x < -10 && -0.5 < currentFrameVelocity.x && currentFrameVelocity.x < 0.5)
         {
-            /*ableToMove = false;
-            gameObject.GetComponent<Rigidbody2D>().velocity = new Vector2(0f, 0f);
-            gameObject.GetComponent<Collider2D>().enabled = false;
-            Destroy(gameObject.GetComponent<Rigidbody2D>());
-            animator.SetBool("IsSmashing", true);*/
             Debug.Log("x negative to 0");
         }
         else if (previousFrameVelocity.x > 10 && -0.5 < currentFrameVelocity.x && currentFrameVelocity.x < 0.5)
@@ -98,34 +85,24 @@ public class AvatarMovement2D : MonoBehaviour
             Debug.Log("x positive to 0");
             ableToMove = false;
             gameObject.GetComponent<Rigidbody2D>().velocity = new Vector2(0f, 0f);
-//CHRIS commented out so dead squishy doesn't hang in mid air    
-            //CHRIS gameObject.GetComponent<Collider2D>().enabled = false;
-           //CHRIS Destroy(gameObject.GetComponent<Rigidbody2D>());
             ChangeAnimationState(SQUISHY_WALL_DEATH);
         }
-//Chris added ableToMove so this animation does not play when he is already dead
-        if (gameObject.GetComponent<Rigidbody2D>().velocity.y <= -2 /*&& standingOnSomething == false*/ && ableToMove == true)
+
+        if (gameObject.GetComponent<Rigidbody2D>().velocity.y <= -2 && ableToMove == true)
         {
             ChangeAnimationState(SQUISHY_FALL);
         }
-        /*else
-        {
-            animator.SetBool("isFalling", false);
-        }*/
 
-        if (gameObject.GetComponent<Rigidbody2D>().velocity.y >= 3 /*&& standingOnSomething == false*/)
+        if (gameObject.GetComponent<Rigidbody2D>().velocity.y >= 3)
         {
             ChangeAnimationState(SQUISHY_BOUNCE);
         }
-        /*else
-        {
-            animator.SetBool("isBouncing", false);
-        }*/
     }
 
     private void OnTriggerEnter2D(Collider2D other)
     {
-        //Debug.Log("IDK " + other.gameObject.name);
+        //Debug.Log("Entered collider " + other.tag);
+        //Bounce platform
         if (other.tag == "YellowPlat")
         {
             if (gameObject.GetComponent<Rigidbody2D>().velocity.y <= 0)
@@ -133,9 +110,53 @@ public class AvatarMovement2D : MonoBehaviour
                 gameObject.GetComponent<Rigidbody2D>().velocity = new Vector2(gameObject.GetComponent<Rigidbody2D>().velocity.x, -gameObject.GetComponent<Rigidbody2D>().velocity.y + BounceStrength);
             }
         }
+        //Double the squishy's directional velocities unless they exceed the Maximum Velocity allowed, in which case the directional velocity that exceeds it gets set to the same amount
         else if (other.tag == "GreenPlat")
         {
-            gameObject.GetComponent<Rigidbody2D>().velocity = new Vector2(gameObject.GetComponent<Rigidbody2D>().velocity.x * AccelerationStrength, gameObject.GetComponent<Rigidbody2D>().velocity.y * AccelerationStrength);
+            if(Mathf.Abs( gameObject.GetComponent<Rigidbody2D>().velocity.x ) * AccelerationStrength <= MaximumSpeed && Mathf.Abs(gameObject.GetComponent<Rigidbody2D>().velocity.y ) * AccelerationStrength <= MaximumSpeed)
+            {
+                gameObject.GetComponent<Rigidbody2D>().velocity = new Vector2(gameObject.GetComponent<Rigidbody2D>().velocity.x * AccelerationStrength, gameObject.GetComponent<Rigidbody2D>().velocity.y * AccelerationStrength);
+            }
+            else
+            {
+                float xSpeed;
+                float ySpeed;
+
+                if(Mathf.Abs(gameObject.GetComponent<Rigidbody2D>().velocity.x) * AccelerationStrength > MaximumSpeed)
+                {
+                    if (gameObject.GetComponent<Rigidbody2D>().velocity.x >= 0)
+                    {
+                        xSpeed = MaximumSpeed;
+                    }
+                    else
+                    {
+                        xSpeed = -MaximumSpeed;
+                    }
+                }
+                else
+                {
+                    xSpeed = gameObject.GetComponent<Rigidbody2D>().velocity.x * AccelerationStrength;
+                }
+
+                if (Mathf.Abs(gameObject.GetComponent<Rigidbody2D>().velocity.y) * AccelerationStrength > MaximumSpeed)
+                {
+                    if (gameObject.GetComponent<Rigidbody2D>().velocity.y >= 0)
+                    {
+                        ySpeed = MaximumSpeed;
+                    }
+                    else
+                    {
+                        ySpeed = -MaximumSpeed;
+                    }
+                }
+                else
+                {
+                    ySpeed = gameObject.GetComponent<Rigidbody2D>().velocity.x * AccelerationStrength;
+                }
+
+                gameObject.GetComponent<Rigidbody2D>().velocity = new Vector2(xSpeed, ySpeed);
+
+            }            
         }
         else if (other.tag == "OrangePlat")
         {
@@ -145,7 +166,7 @@ public class AvatarMovement2D : MonoBehaviour
         {
             ableToMove = false;
             gameObject.GetComponent<Rigidbody2D>().velocity = new Vector2(0f, 0f);
- //CHRIS commented out so dead squishy doesn't hang in mid air
+            //CHRIS commented out so dead squishy doesn't hang in mid air
             //CHRIS Destroy(gameObject.GetComponent<Rigidbody2D>());
             //CHRIS gameObject.GetComponent<Collider2D>().enabled = false;
             ChangeAnimationState(SQUISHY_RFF_DEATH);
@@ -156,8 +177,9 @@ public class AvatarMovement2D : MonoBehaviour
         {
             if (inContactWithFirstPurplePlatform == false && teleported == false)
             {
-                inContactWithFirstPurplePlatform = true;
+
                 gameObject.transform.position = other.gameObject.GetComponent<PurpleTeleport>().getTeleportPosition();
+                inContactWithFirstPurplePlatform = true;
             }
             else if (inContactWithFirstPurplePlatform == true && teleported == false)
             {
@@ -183,14 +205,38 @@ public class AvatarMovement2D : MonoBehaviour
         }
     }
 
+    public void AvatarPirateAttackDeath()
+    {
+        ChangeAnimationState(SQUISHY_PIRATE_DEATH);
+    }
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if(collision.collider.tag == "ElecPlat")
+        {
+            ableToMove = false;
+            gameObject.GetComponent<Rigidbody2D>().velocity = new Vector2(0f, 0f);
+            //CHRIS commented out so dead squishy doesn't hang in mid air
+            //Destroy(gameObject.GetComponent<Rigidbody2D>());
+            gameObject.GetComponent<Collider2D>().enabled = false;
+            ChangeAnimationState(SQUISHY_ELECTRIC_DEATH);
+        }
+
+        if (collision.collider.tag == "Pirate")
+        {
+            ableToMove = false;
+            gameObject.GetComponent<Rigidbody2D>().velocity = new Vector2(0f, 0f);
+            Animator PirateAttack = collision.gameObject.GetComponent<Animator>();
+            PirateAttack.Play("Pirate1_Attack");
+            Invoke("AvatarPirateAttackDeath", PirateAttack.GetCurrentAnimatorStateInfo(0).length / 2);
+        }
+    }
+
     private void OnCollisionStay2D(Collision2D collision)
     {
-       // Debug.Log("In contact with somwthind");
-        //standingOnSomething = true;
-        /*Debug.Log("Collided with " + collision.gameObject.name);*/
-        /*if (collision.collider.tag == "Obstacle" || collision.collider.tag == "BluePlat")
-        {*/
-        if (ActiveButtons.goButton == true && ableToMove == true)
+        if (collision.collider.tag == "Obstacle" || collision.collider.tag == "BluePlat")
+        {
+            if (ActiveButtons.goButton == true && ableToMove == true)
             {
                 if (gameObject.GetComponent<Rigidbody2D>().velocity.x < 5)
                     gameObject.GetComponent<Rigidbody2D>().AddForce(transform.right * 17);
@@ -216,20 +262,18 @@ public class AvatarMovement2D : MonoBehaviour
                     }
                 }
             }
-        //}
+        }
     }
 
     private void OnCollisionExit2D(Collision2D collision)
     {
-        //standingOnSomething = false;
-        //Debug.Log("Exited collision");
-        /*animator.SetBool("isRunning", false);*/
         if (soundPlaying == true)
         {
             soundPlaying = false;
             footstepSource.Stop();
         }
     }
+
     void ChangeAnimationState(string newState)
     {
         if (currentState == newState) return;

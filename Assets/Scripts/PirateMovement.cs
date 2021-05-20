@@ -159,6 +159,24 @@ public class PirateMovement : MonoBehaviour
         }
     }
 
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.collider.tag == "ElecPlat")
+        {
+            ableToMove = false;
+            gameObject.GetComponent<Rigidbody2D>().velocity = new Vector2(0f, 0f);
+            //CHRIS commented out so dead squishy doesn't hang in mid air
+            Destroy(gameObject.GetComponent<Rigidbody2D>());
+            gameObject.GetComponent<Collider2D>().enabled = false;
+            ChangeAnimationState(PIRATE_ELECTRIC_DEATH);
+        }
+        if (collision.collider.tag == "Avatar")
+        {
+            ableToMove = false;
+            gameObject.GetComponent<Rigidbody2D>().velocity = new Vector2(0f, 0f);
+        }
+    }
+
     private void OnCollisionStay2D(Collision2D collision)
     {
         if (ActiveButtons.goButton == true && ableToMove == true)
