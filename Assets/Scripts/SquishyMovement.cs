@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class AvatarMovement : MonoBehaviour
+public class SquishyMovement : MonoBehaviour
 {
     public float BounceStrength;
     public float AccelerationStrength;
@@ -20,7 +20,7 @@ public class AvatarMovement : MonoBehaviour
 
     public AudioSource footstepSource;
 
-    //Variables to store the squishy's velocity each currnet and previous frame
+    //Variables to store the squishy's velocity each currnet and previous frame 
     private Vector2 previousFrameVelocity;
     private Vector2 currentFrameVelocity;
 
@@ -38,13 +38,9 @@ public class AvatarMovement : MonoBehaviour
     const string SQUISHY_ELECTRIC_DEATH = "Squishy1_Death_Electricity";
     const string SQUISHY_SHOT = "Squishy1_Death_Shot";
 
-    private void Start()
+    // Start is called before the first frame update
+    void Start()
     {
-        BounceStrength = 3;
-        AccelerationStrength = 2;
-        DecelerationStrength = 2;
-        MaximumSpeed = 10;
-
         inContactWithFirstPurplePlatform = false;
         teleported = false;
 
@@ -63,14 +59,11 @@ public class AvatarMovement : MonoBehaviour
         previousFrameVelocity = currentFrameVelocity;
         currentFrameVelocity = gameObject.GetComponent<Rigidbody2D>().velocity;
 
-        //CHRIS added able to move to avoid triggering if already dead
         if (previousFrameVelocity.y < -10 && -0.5 < currentFrameVelocity.y && currentFrameVelocity.y < 0.5 && ableToMove == true)
         {
             Debug.Log("y negative to 0");
             ableToMove = false;
             gameObject.GetComponent<Rigidbody2D>().velocity = new Vector2(0f, 0f);
-            //gameObject.GetComponent<Collider2D>().enabled = false;
-            //Destroy(gameObject.GetComponent<Rigidbody2D>());
             ChangeAnimationState(SQUISHY_FALL_DEATH);
         }
         else if (previousFrameVelocity.y > 10 && -0.5 < currentFrameVelocity.y && currentFrameVelocity.y < 0.5)
@@ -79,11 +72,6 @@ public class AvatarMovement : MonoBehaviour
         }
         else if (previousFrameVelocity.x < -10 && -0.5 < currentFrameVelocity.x && currentFrameVelocity.x < 0.5)
         {
-            /*ableToMove = false;
-            gameObject.GetComponent<Rigidbody2D>().velocity = new Vector2(0f, 0f);
-            gameObject.GetComponent<Collider2D>().enabled = false;
-            Destroy(gameObject.GetComponent<Rigidbody2D>());
-            animator.SetBool("IsSmashing", true);*/
             Debug.Log("x negative to 0");
         }
         else if (previousFrameVelocity.x > 10 && -0.5 < currentFrameVelocity.x && currentFrameVelocity.x < 0.5)
@@ -91,20 +79,12 @@ public class AvatarMovement : MonoBehaviour
             Debug.Log("x positive to 0");
             ableToMove = false;
             gameObject.GetComponent<Rigidbody2D>().velocity = new Vector2(0f, 0f);
-            //CHRIS commented out so dead squishy doesn't hang in mid air    
-            //CHRIS gameObject.GetComponent<Collider2D>().enabled = false;
-            //CHRIS Destroy(gameObject.GetComponent<Rigidbody2D>());
             ChangeAnimationState(SQUISHY_WALL_DEATH);
         }
-        //Chris added ableToMove so this animation does not play when he is already dead
         if (gameObject.GetComponent<Rigidbody2D>().velocity.y <= -2 /*&& standingOnSomething == false*/ && ableToMove == true)
         {
             ChangeAnimationState(SQUISHY_FALL);
         }
-        /*else
-        {
-            animator.SetBool("isFalling", false);
-        }*/
 
         if (gameObject.GetComponent<Rigidbody2D>().velocity.y >= 3 /*&& standingOnSomething == false*/)
         {
@@ -114,7 +94,7 @@ public class AvatarMovement : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D other)
     {
-        Debug.Log("Entered collider");
+        Debug.Log("Entered collider " + other.tag);
         if (other.tag == "YellowPlat")
         {
             if (gameObject.GetComponent<Rigidbody2D>().velocity.y <= 0)
@@ -178,12 +158,7 @@ public class AvatarMovement : MonoBehaviour
         {
             ableToMove = false;
             gameObject.GetComponent<Rigidbody2D>().velocity = new Vector2(0f, 0f);
-            //CHRIS commented out so dead squishy doesn't hang in mid air
-            //CHRIS Destroy(gameObject.GetComponent<Rigidbody2D>());
-            //CHRIS gameObject.GetComponent<Collider2D>().enabled = false;
             ChangeAnimationState(SQUISHY_RFF_DEATH);
-            /*animator.PlayInFixedTime("Squishy1_Death_RedFF", 1, 1f);*/
-            /*Destroy(gameObject);*/
         }
         else if (other.tag == "PurplePlat")
         {
@@ -227,9 +202,6 @@ public class AvatarMovement : MonoBehaviour
         {
             ableToMove = false;
             gameObject.GetComponent<Rigidbody2D>().velocity = new Vector2(0f, 0f);
-            //CHRIS commented out so dead squishy doesn't hang in mid air
-            //Destroy(gameObject.GetComponent<Rigidbody2D>());
-            gameObject.GetComponent<Collider2D>().enabled = false;
             ChangeAnimationState(SQUISHY_ELECTRIC_DEATH);
         }
 
@@ -284,6 +256,7 @@ public class AvatarMovement : MonoBehaviour
             footstepSource.Stop();
         }
     }
+
     void ChangeAnimationState(string newState)
     {
         if (currentState == newState) return;

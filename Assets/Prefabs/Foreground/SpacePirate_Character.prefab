@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 488101802171633499}
   m_Layer: 0
   m_Name: SpacePirate_Character
-  m_TagString: Untagged
+  m_TagString: Pirate
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
