@@ -127,16 +127,37 @@ public class CreatePlatform : MonoBehaviour, IPointerUpHandler, IPointerDownHand
                         MakePlatform();
                         energySlider.value -= Mathf.Abs(Vector2.Distance(objectStart, objectEnd));
                     }*/
-                    if (Physics2D.Linecast(objectStart, objectEnd))
+                    Debug.Log("Click Lifted");
+                    if (ActiveButtons.blue == true && ActiveButtons.red == true && ActiveButtons.yellow == false)
                     {
-                        if (hit.collider != null)
+                        if (energySlider.value >= Mathf.Abs(Vector2.Distance(objectStart, objectEnd)) + Mathf.Abs(new Vector2(0.1f, 2f).y * 2 + new Vector2(0.1f, 2f).y * 2))
                         {
-                            Debug.Log("What are you doing?");
+                            MakePlatform();
+                            energySlider.value -= Mathf.Abs(Vector2.Distance(objectStart, objectEnd));
                         }
                     }
                     else
                     {
-                        Debug.Log("Click Lifted");
+                        if (Physics2D.Linecast(objectStart, objectEnd))
+                        {
+                            if (hit.collider != null)
+                            {
+                                Debug.Log("What are you doing?");
+                            }
+                        }
+                        else
+                        {
+                            if (energySlider.value >= Mathf.Abs(Vector2.Distance(objectStart, objectEnd)))
+                            {
+                                MakePlatform();
+                                energySlider.value -= Mathf.Abs(Vector2.Distance(objectStart, objectEnd));
+                            }
+                        }
+                    }
+                    
+                    /*else
+                    {*/
+                        /*Debug.Log("Click Lifted");
                         if (ActiveButtons.blue == true && ActiveButtons.red == true && ActiveButtons.yellow == false)
                         {
                             if (energySlider.value >= Mathf.Abs(Vector2.Distance(objectStart, objectEnd)) + Mathf.Abs(new Vector2(0.1f, 2f).y * 2 + new Vector2(0.1f, 2f).y * 2))
@@ -152,8 +173,8 @@ public class CreatePlatform : MonoBehaviour, IPointerUpHandler, IPointerDownHand
                                 MakePlatform();
                                 energySlider.value -= Mathf.Abs(Vector2.Distance(objectStart, objectEnd));
                             }
-                        }
-                    }
+                        }*/
+                    //}
                 }
                 else
                 {
