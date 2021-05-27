@@ -79,7 +79,8 @@ public class PirateMovement : MonoBehaviour
             ableToMove = false;
             gameObject.GetComponent<Rigidbody2D>().velocity = new Vector2(0f, 0f);
             gameObject.GetComponent<Collider2D>().enabled = false;
-            Destroy(gameObject.GetComponent<Rigidbody2D>());
+            //CHRIS commented out so it does not hang in mid air
+            //Destroy(gameObject.GetComponent<Rigidbody2D>());
             ChangeAnimationState(PIRATE_WALL_DEATH);
         }
         else if (previousFrameVelocity.x > 20 && -0.5 < currentFrameVelocity.x && currentFrameVelocity.x < 0.5)
@@ -88,11 +89,12 @@ public class PirateMovement : MonoBehaviour
             ableToMove = false;
             gameObject.GetComponent<Rigidbody2D>().velocity = new Vector2(0f, 0f);
             gameObject.GetComponent<Collider2D>().enabled = false;
-            Destroy(gameObject.GetComponent<Rigidbody2D>());
+            //CHRIS commented out so it does not hang in mid air
+            //Destroy(gameObject.GetComponent<Rigidbody2D>());
             ChangeAnimationState(PIRATE_WALL_DEATH);
         }
-
-        if (gameObject.GetComponent<Rigidbody2D>().velocity.y <= -2)
+//CHRIS added abletomove != false so it does not trigger when already dead
+        if (gameObject.GetComponent<Rigidbody2D>().velocity.y <= -2 && ableToMove != false)
         {
             ChangeAnimationState(PIRATE_FALL);
         }
@@ -133,7 +135,8 @@ public class PirateMovement : MonoBehaviour
         {
             ableToMove = false;
             gameObject.GetComponent<Rigidbody2D>().velocity = new Vector2(0f, 0f);
-            Destroy(gameObject.GetComponent<Rigidbody2D>());
+//CHRIS commented out so it does not hang in mid air
+        //  Destroy(gameObject.GetComponent<Rigidbody2D>());
             gameObject.GetComponent<Collider2D>().enabled = false;
             ChangeAnimationState(PIRATE_RFF_DEATH);
         }
