@@ -41,7 +41,7 @@ public class AvatarMovement2D : MonoBehaviour
     private void Start()
     {
         BounceStrength = 3;
-        AccelerationStrength = 2;
+        AccelerationStrength = 1.5f;
         DecelerationStrength = 2;
         MaximumSpeed = 10;
 
@@ -113,7 +113,17 @@ public class AvatarMovement2D : MonoBehaviour
         //Double the squishy's directional velocities unless they exceed the Maximum Velocity allowed, in which case the directional velocity that exceeds it gets set to the same amount
         else if (other.tag == "GreenPlat")
         {
-            if(Mathf.Abs( gameObject.GetComponent<Rigidbody2D>().velocity.x ) * AccelerationStrength <= MaximumSpeed && Mathf.Abs(gameObject.GetComponent<Rigidbody2D>().velocity.y ) * AccelerationStrength <= MaximumSpeed)
+            gameObject.GetComponent<Rigidbody2D>().velocity = new Vector2(gameObject.GetComponent<Rigidbody2D>().velocity.x * AccelerationStrength, gameObject.GetComponent<Rigidbody2D>().velocity.y * AccelerationStrength);
+
+            /*Vector2 velocity = gameObject.GetComponent<Rigidbody2D>().velocity;
+            float x = gameObject.GetComponent<Rigidbody2D>().velocity.x;
+            float y = gameObject.GetComponent<Rigidbody2D>().velocity.y;
+
+
+            if (Mathf.Sqrt((x * x) + (y * y)) * AccelerationStrength < MaximumSpeed){
+                gameObject.GetComponent<Rigidbody2D>().velocity = new Vector2(Mathf.Sqrt((x * x)) * AccelerationStrength, gameObject.GetComponent<Rigidbody2D>().velocity.y * AccelerationStrength);
+            }*/
+            /*if(Mathf.Abs( gameObject.GetComponent<Rigidbody2D>().velocity.x ) * AccelerationStrength <= MaximumSpeed && Mathf.Abs(gameObject.GetComponent<Rigidbody2D>().velocity.y ) * AccelerationStrength <= MaximumSpeed)
             {
                 gameObject.GetComponent<Rigidbody2D>().velocity = new Vector2(gameObject.GetComponent<Rigidbody2D>().velocity.x * AccelerationStrength, gameObject.GetComponent<Rigidbody2D>().velocity.y * AccelerationStrength);
             }
@@ -155,8 +165,8 @@ public class AvatarMovement2D : MonoBehaviour
                 }
 
                 gameObject.GetComponent<Rigidbody2D>().velocity = new Vector2(xSpeed, ySpeed);
-
-            }            
+*/
+            //            }          
         }
         else if (other.tag == "OrangePlat")
         {
@@ -173,7 +183,7 @@ public class AvatarMovement2D : MonoBehaviour
             /*animator.PlayInFixedTime("Squishy1_Death_RedFF", 1, 1f);*/
             /*Destroy(gameObject);*/
         }
-        else if (other.tag == "PurplePlat")
+        else if (other.tag == "PurplePlat") 
         {
             if (inContactWithFirstPurplePlatform == false && teleported == false)
             {
