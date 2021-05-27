@@ -43,7 +43,7 @@ public class LevelAdvancement : MonoBehaviour, IPointerClickHandler
                     ActiveButtons.red = false;
                     ActiveButtons.yellow = false;
                     ActiveButtons.goButton = false;
-                    ActiveButtons.resetButton = true;
+                    ActiveButtons.resetButton = false;
                     ActiveButtons.advancebutton = false;
                     SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
                 }

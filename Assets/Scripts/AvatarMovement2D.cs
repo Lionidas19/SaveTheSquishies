@@ -37,6 +37,7 @@ public class AvatarMovement2D : MonoBehaviour
     const string SQUISHY_PIRATE_DEATH = "Squishy1_Death_pirate";
     const string SQUISHY_ELECTRIC_DEATH = "Squishy1_Death_Electricity";
     const string SQUISHY_SHOT = "Squishy1_Death_Shot";
+    const string SQUISHY_CEILING_DEATH = "Squishy1_Death_Ceiling";
 
     private void Start()
     {
@@ -74,7 +75,11 @@ public class AvatarMovement2D : MonoBehaviour
         }
         else if (previousFrameVelocity.y > 10 && -0.5 < currentFrameVelocity.y && currentFrameVelocity.y < 0.5)
         {
-            Destroy(gameObject);
+            ableToMove = false;
+            gameObject.GetComponent<Rigidbody2D>().velocity = new Vector2(0f, 0f);
+            Destroy(gameObject.GetComponent<Rigidbody2D>());
+            Destroy(gameObject.GetComponent<Collider2D>());
+            ChangeAnimationState(SQUISHY_CEILING_DEATH);
         }
         else if (previousFrameVelocity.x < -10 && -0.5 < currentFrameVelocity.x && currentFrameVelocity.x < 0.5)
         {

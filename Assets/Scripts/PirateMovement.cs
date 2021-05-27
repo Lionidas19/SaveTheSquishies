@@ -34,6 +34,7 @@ public class PirateMovement : MonoBehaviour
     const string PIRATE_ELECTRIC_DEATH = "Pirate1_ElectricDeath";
     const string PIRATE_ATTACK = "Pirate1_Attack";
     const string PIRATE_BOUNCE = "Pirate1_Bouncing";
+    const string PIRATE_CEILING_DEATH = "Pirate1_CeilingDeath";
 
     // Start is called before the first frame update
     void Start()
@@ -71,7 +72,11 @@ public class PirateMovement : MonoBehaviour
         }
         else if (previousFrameVelocity.y > 20 && -0.5 < currentFrameVelocity.y && currentFrameVelocity.y < 0.5)
         {
-            Destroy(gameObject);
+            ableToMove = false;
+            gameObject.GetComponent<Rigidbody2D>().velocity = new Vector2(0f, 0f);
+            Destroy(gameObject.GetComponent<Rigidbody2D>());
+            Destroy(gameObject.GetComponent<Collider2D>());
+            ChangeAnimationState(PIRATE_CEILING_DEATH);
         }
         else if (previousFrameVelocity.x < -20 && -0.5 < currentFrameVelocity.x && currentFrameVelocity.x < 0.5)
         {
