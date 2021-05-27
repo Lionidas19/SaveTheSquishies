@@ -1237,6 +1237,7 @@ GameObject:
   - component: {fileID: 4994665913654904235}
   - component: {fileID: 7217570790742086544}
   - component: {fileID: 455156902408072014}
+  - component: {fileID: 2381992299615972745}
   m_Layer: 0
   m_Name: Squishy1_Character
   m_TagString: Avatar
@@ -1383,7 +1384,7 @@ BoxCollider2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 9064285673433032517}
-  m_Enabled: 1
+  m_Enabled: 0
   m_Density: 1
   m_Material: {fileID: 0}
   m_IsTrigger: 0
@@ -1402,3 +1403,19 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.6, y: 1.83}
   m_EdgeRadius: 0
+--- !u!70 &2381992299615972745
+CapsuleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9064285673433032517}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 6200000, guid: 11f1219674588dd44bb3fdffcf382911, type: 2}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: -0.014458865, y: 0.18435037}
+  m_Size: {x: 0.81809443, y: 1.932595}
+  m_Direction: 0
