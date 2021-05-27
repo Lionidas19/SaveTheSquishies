@@ -61,6 +61,7 @@ public class AvatarMovement2D : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        Debug.Log("Advancing? " + ActiveButtons.advancebutton);
         /*Debug.Log("Avatar's horizontal speed" + gameObject.GetComponent<Rigidbody2D>().velocity.x);
         Debug.Log("Avatar's vertical speed" + gameObject.GetComponent<Rigidbody2D>().velocity.y);*/
         previousFrameVelocity = currentFrameVelocity;
@@ -118,60 +119,7 @@ public class AvatarMovement2D : MonoBehaviour
         //Double the squishy's directional velocities unless they exceed the Maximum Velocity allowed, in which case the directional velocity that exceeds it gets set to the same amount
         else if (other.tag == "GreenPlat")
         {
-            gameObject.GetComponent<Rigidbody2D>().velocity = new Vector2(gameObject.GetComponent<Rigidbody2D>().velocity.x * AccelerationStrength, gameObject.GetComponent<Rigidbody2D>().velocity.y * AccelerationStrength);
-
-            /*Vector2 velocity = gameObject.GetComponent<Rigidbody2D>().velocity;
-            float x = gameObject.GetComponent<Rigidbody2D>().velocity.x;
-            float y = gameObject.GetComponent<Rigidbody2D>().velocity.y;
-
-
-            if (Mathf.Sqrt((x * x) + (y * y)) * AccelerationStrength < MaximumSpeed){
-                gameObject.GetComponent<Rigidbody2D>().velocity = new Vector2(Mathf.Sqrt((x * x)) * AccelerationStrength, gameObject.GetComponent<Rigidbody2D>().velocity.y * AccelerationStrength);
-            }*/
-            /*if(Mathf.Abs( gameObject.GetComponent<Rigidbody2D>().velocity.x ) * AccelerationStrength <= MaximumSpeed && Mathf.Abs(gameObject.GetComponent<Rigidbody2D>().velocity.y ) * AccelerationStrength <= MaximumSpeed)
-            {
-                gameObject.GetComponent<Rigidbody2D>().velocity = new Vector2(gameObject.GetComponent<Rigidbody2D>().velocity.x * AccelerationStrength, gameObject.GetComponent<Rigidbody2D>().velocity.y * AccelerationStrength);
-            }
-            else
-            {
-                float xSpeed;
-                float ySpeed;
-
-                if(Mathf.Abs(gameObject.GetComponent<Rigidbody2D>().velocity.x) * AccelerationStrength > MaximumSpeed)
-                {
-                    if (gameObject.GetComponent<Rigidbody2D>().velocity.x >= 0)
-                    {
-                        xSpeed = MaximumSpeed;
-                    }
-                    else
-                    {
-                        xSpeed = -MaximumSpeed;
-                    }
-                }
-                else
-                {
-                    xSpeed = gameObject.GetComponent<Rigidbody2D>().velocity.x * AccelerationStrength;
-                }
-
-                if (Mathf.Abs(gameObject.GetComponent<Rigidbody2D>().velocity.y) * AccelerationStrength > MaximumSpeed)
-                {
-                    if (gameObject.GetComponent<Rigidbody2D>().velocity.y >= 0)
-                    {
-                        ySpeed = MaximumSpeed;
-                    }
-                    else
-                    {
-                        ySpeed = -MaximumSpeed;
-                    }
-                }
-                else
-                {
-                    ySpeed = gameObject.GetComponent<Rigidbody2D>().velocity.x * AccelerationStrength;
-                }
-
-                gameObject.GetComponent<Rigidbody2D>().velocity = new Vector2(xSpeed, ySpeed);
-*/
-            //            }          
+            gameObject.GetComponent<Rigidbody2D>().velocity = new Vector2(gameObject.GetComponent<Rigidbody2D>().velocity.x * AccelerationStrength, gameObject.GetComponent<Rigidbody2D>().velocity.y * AccelerationStrength);       
         }
         else if (other.tag == "OrangePlat")
         {
@@ -213,6 +161,7 @@ public class AvatarMovement2D : MonoBehaviour
         if(other.tag == "Door")
         {
             ActiveButtons.advancebutton = true;
+            Debug.Log("Advancing? " + ActiveButtons.advancebutton);
             ableToMove = false;
             ChangeAnimationState(SQUISHY_IDLE);
             gameObject.GetComponent<Rigidbody2D>().velocity = new Vector2(0f, 0f);
