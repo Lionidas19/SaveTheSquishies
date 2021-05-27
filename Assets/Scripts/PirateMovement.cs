@@ -61,7 +61,7 @@ public class PirateMovement : MonoBehaviour
         previousFrameVelocity = currentFrameVelocity;
         currentFrameVelocity = gameObject.GetComponent<Rigidbody2D>().velocity;
 
-        if (previousFrameVelocity.y < -20 && -0.5 < currentFrameVelocity.y && currentFrameVelocity.y < 0.5)
+        if (previousFrameVelocity.y < -20 && -0.5 < currentFrameVelocity.y && currentFrameVelocity.y < 0.5 && ableToMove != false)
         {
             Debug.Log("y negative to 0");
             ableToMove = false;
@@ -70,7 +70,7 @@ public class PirateMovement : MonoBehaviour
             Destroy(gameObject.GetComponent<Rigidbody2D>());
             ChangeAnimationState(PIRATE_FALL_DEATH);
         }
-        else if (previousFrameVelocity.y > 20 && -0.5 < currentFrameVelocity.y && currentFrameVelocity.y < 0.5)
+        else if (previousFrameVelocity.y > 20 && -0.5 < currentFrameVelocity.y && currentFrameVelocity.y < 0.5 && ableToMove != false)
         {
             ableToMove = false;
             gameObject.GetComponent<Rigidbody2D>().velocity = new Vector2(0f, 0f);
@@ -78,22 +78,24 @@ public class PirateMovement : MonoBehaviour
             Destroy(gameObject.GetComponent<Collider2D>());
             ChangeAnimationState(PIRATE_CEILING_DEATH);
         }
-        else if (previousFrameVelocity.x < -20 && -0.5 < currentFrameVelocity.x && currentFrameVelocity.x < 0.5)
-        {
+        else if (previousFrameVelocity.x < -20 && -0.5 < currentFrameVelocity.x && currentFrameVelocity.x < 0.5 && ableToMove != false)
+        { 
             Debug.Log("x negative to 0");
             ableToMove = false;
             gameObject.GetComponent<Rigidbody2D>().velocity = new Vector2(0f, 0f);
-            gameObject.GetComponent<Collider2D>().enabled = false;
+            //CHRIS
+            //gameObject.GetComponent<Collider2D>().enabled = false;
             //CHRIS commented out so it does not hang in mid air
             //Destroy(gameObject.GetComponent<Rigidbody2D>());
             ChangeAnimationState(PIRATE_WALL_DEATH);
         }
-        else if (previousFrameVelocity.x > 20 && -0.5 < currentFrameVelocity.x && currentFrameVelocity.x < 0.5)
+        else if (previousFrameVelocity.x > 20 && -0.5 < currentFrameVelocity.x && currentFrameVelocity.x < 0.5 && ableToMove != false)
         {
             Debug.Log("x positive to 0");
             ableToMove = false;
             gameObject.GetComponent<Rigidbody2D>().velocity = new Vector2(0f, 0f);
-            gameObject.GetComponent<Collider2D>().enabled = false;
+            //CHRIS
+            //gameObject.GetComponent<Collider2D>().enabled = false;
             //CHRIS commented out so it does not hang in mid air
             //Destroy(gameObject.GetComponent<Rigidbody2D>());
             ChangeAnimationState(PIRATE_WALL_DEATH);
@@ -140,9 +142,10 @@ public class PirateMovement : MonoBehaviour
         {
             ableToMove = false;
             gameObject.GetComponent<Rigidbody2D>().velocity = new Vector2(0f, 0f);
-//CHRIS commented out so it does not hang in mid air
-        //  Destroy(gameObject.GetComponent<Rigidbody2D>());
-            gameObject.GetComponent<Collider2D>().enabled = false;
+          //CHRIS commented out so it does not hang in mid air
+          //Destroy(gameObject.GetComponent<Rigidbody2D>());
+          //CHRIS
+          //gameObject.GetComponent<Collider2D>().enabled = false;
             ChangeAnimationState(PIRATE_RFF_DEATH);
         }
         else if (other.tag == "PurplePlat")
@@ -169,13 +172,13 @@ public class PirateMovement : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.collider.tag == "ElecPlat")
+        if (collision.collider.tag == "ElecPlat" && ableToMove != false)
         {
             ableToMove = false;
             gameObject.GetComponent<Rigidbody2D>().velocity = new Vector2(0f, 0f);
-            //CHRIS commented out so dead squishy doesn't hang in mid air
-            Destroy(gameObject.GetComponent<Rigidbody2D>());
-            gameObject.GetComponent<Collider2D>().enabled = false;
+            //CHRIS commented out so dead squishy doesn't hang in mid air and fall through platforms
+            //Destroy(gameObject.GetComponent<Rigidbody2D>());
+            //gameObject.GetComponent<Collider2D>().enabled = false;
             ChangeAnimationState(PIRATE_ELECTRIC_DEATH);
         }
         if (collision.collider.tag == "Avatar")

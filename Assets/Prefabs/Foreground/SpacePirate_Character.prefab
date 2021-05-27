@@ -91,12 +91,12 @@ CapsuleCollider2D:
   m_GameObject: {fileID: 295481431146463864}
   m_Enabled: 1
   m_Density: 1
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 6200000, guid: 11f1219674588dd44bb3fdffcf382911, type: 2}
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.034163833, y: 0.034163713}
-  m_Size: {x: 1.0368612, y: 2.0639606}
+  m_Offset: {x: -0.018021286, y: 0.034163713}
+  m_Size: {x: 1.0045761, y: 2.0639606}
   m_Direction: 0
 --- !u!114 &488101802171633499
 MonoBehaviour:

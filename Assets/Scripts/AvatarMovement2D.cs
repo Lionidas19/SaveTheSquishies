@@ -67,13 +67,13 @@ public class AvatarMovement2D : MonoBehaviour
         currentFrameVelocity = gameObject.GetComponent<Rigidbody2D>().velocity;
         
         //If the squishy is falling with a vertical velocity exceeding -10 and they hit the ground they die
-        if (previousFrameVelocity.y < -10 && -0.5 < currentFrameVelocity.y && currentFrameVelocity.y < 0.5 && ableToMove == true) 
+        if (previousFrameVelocity.y < -10 && -0.5 < currentFrameVelocity.y && currentFrameVelocity.y < 0.5 && ableToMove != false) 
         {
             ableToMove = false;
             gameObject.GetComponent<Rigidbody2D>().velocity = new Vector2(0f, 0f);
             ChangeAnimationState(SQUISHY_FALL_DEATH);
         }
-        else if (previousFrameVelocity.y > 10 && -0.5 < currentFrameVelocity.y && currentFrameVelocity.y < 0.5)
+        else if (previousFrameVelocity.y > 10 && -0.5 < currentFrameVelocity.y && currentFrameVelocity.y < 0.5 && ableToMove != false)
         {
             ableToMove = false;
             gameObject.GetComponent<Rigidbody2D>().velocity = new Vector2(0f, 0f);
@@ -81,11 +81,11 @@ public class AvatarMovement2D : MonoBehaviour
             Destroy(gameObject.GetComponent<Collider2D>());
             ChangeAnimationState(SQUISHY_CEILING_DEATH);
         }
-        else if (previousFrameVelocity.x < -10 && -0.5 < currentFrameVelocity.x && currentFrameVelocity.x < 0.5)
+        else if (previousFrameVelocity.x < -10 && -0.5 < currentFrameVelocity.x && currentFrameVelocity.x < 0.5 && ableToMove != false)
         {
             Debug.Log("x negative to 0");
         }
-        else if (previousFrameVelocity.x > 10 && -0.5 < currentFrameVelocity.x && currentFrameVelocity.x < 0.5)
+        else if (previousFrameVelocity.x > 10 && -0.5 < currentFrameVelocity.x && currentFrameVelocity.x < 0.5 && ableToMove != false)
         {
             Debug.Log("x positive to 0");
             ableToMove = false;
@@ -227,17 +227,18 @@ public class AvatarMovement2D : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if(collision.collider.tag == "ElecPlat")
+        if(collision.collider.tag == "ElecPlat" && ableToMove != false)
         {
             ableToMove = false;
             gameObject.GetComponent<Rigidbody2D>().velocity = new Vector2(0f, 0f);
             //CHRIS commented out so dead squishy doesn't hang in mid air
             //Destroy(gameObject.GetComponent<Rigidbody2D>());
-            gameObject.GetComponent<Collider2D>().enabled = false;
+            //CHRIS
+            //gameObject.GetComponent<Collider2D>().enabled = false;
             ChangeAnimationState(SQUISHY_ELECTRIC_DEATH);
         }
 
-        if (collision.collider.tag == "Pirate")
+        if (collision.collider.tag == "Pirate" && ableToMove != false)
         {
             ableToMove = false;
             gameObject.GetComponent<Rigidbody2D>().velocity = new Vector2(0f, 0f);
