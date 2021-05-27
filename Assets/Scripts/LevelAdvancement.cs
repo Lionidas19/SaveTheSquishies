@@ -2,11 +2,14 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class LevelAdvancement : MonoBehaviour, IPointerClickHandler
 {
     public Button button;
+
+//    public AudioSource pressedButton;
 
     public void OnPointerClick(PointerEventData pointerEventData)
     {
@@ -35,7 +38,12 @@ public class LevelAdvancement : MonoBehaviour, IPointerClickHandler
                 }
                 else
                 {
-                    Debug.Log("next level");
+                    ActiveButtons.blue = false;
+                    ActiveButtons.red = false;
+                    ActiveButtons.yellow = false;
+                    ActiveButtons.goButton = false;
+                    ActiveButtons.resetButton = true;
+                    SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
                 }
             }
         }
