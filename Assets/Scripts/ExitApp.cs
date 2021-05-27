@@ -18,6 +18,13 @@ public class ExitApp : MonoBehaviour
 
     public void QuitApp()
     {
+        ActiveButtons.yellow = false;
+        ActiveButtons.blue = false;
+        ActiveButtons.red = false;
+
+        ActiveButtons.goButton = false;
+        ActiveButtons.resetButton = false;
+        ActiveButtons.advancebutton = false;
         Application.Quit();
     }
 }

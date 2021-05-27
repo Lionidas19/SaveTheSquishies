@@ -16,6 +16,13 @@ public class EscToTitle : MonoBehaviour
     {
         if (Input.GetKey("escape"))
         {
+            ActiveButtons.yellow = false;
+            ActiveButtons.blue = false;
+            ActiveButtons.red = false;
+
+            ActiveButtons.goButton = false;
+            ActiveButtons.resetButton = false;
+            ActiveButtons.advancebutton = false;
             SceneManager.LoadScene("TitleScreen");
         }
     }
