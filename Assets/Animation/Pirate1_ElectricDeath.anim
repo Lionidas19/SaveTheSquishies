@@ -1868,8 +1868,6 @@ AnimationClip:
     - time: 2.3333333
       value: {fileID: 4256770670854991804, guid: 359e92968c34be1488402f9a534133d4,
         type: 3}
-    - time: 2.55
-      value: {fileID: 0}
     attribute: m_Sprite
     path: Ash
     classID: 212
@@ -2168,7 +2166,6 @@ AnimationClip:
     - {fileID: 4899742593940028967, guid: 359e92968c34be1488402f9a534133d4, type: 3}
     - {fileID: -5351368309880809390, guid: 359e92968c34be1488402f9a534133d4, type: 3}
     - {fileID: 4256770670854991804, guid: 359e92968c34be1488402f9a534133d4, type: 3}
-    - {fileID: 0}
     - {fileID: 0}
     - {fileID: -3619071001053975862, guid: 8b3e1cbaf1399e84c9f7beb4f485ded9, type: 3}
     - {fileID: -8065533573436327884, guid: 8b3e1cbaf1399e84c9f7beb4f485ded9, type: 3}
