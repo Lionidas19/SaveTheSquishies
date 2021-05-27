@@ -28,8 +28,9 @@ public class LevelAdvancement : MonoBehaviour, IPointerClickHandler
                 ActiveButtons.yellow = false;
                 ActiveButtons.goButton = false;
                 ActiveButtons.resetButton = true;
-                /*SceneManager.LoadScene(SceneManager.GetActiveScene().name);*/
-            }
+                ActiveButtons.advancebutton = false;
+    /*SceneManager.LoadScene(SceneManager.GetActiveScene().name);*/
+}
             if(gameObject.name == "AdvanceButton")
             {
                 if(ActiveButtons.advancebutton == false)
@@ -43,6 +44,7 @@ public class LevelAdvancement : MonoBehaviour, IPointerClickHandler
                     ActiveButtons.yellow = false;
                     ActiveButtons.goButton = false;
                     ActiveButtons.resetButton = true;
+                    ActiveButtons.advancebutton = false;
                     SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
                 }
             }
