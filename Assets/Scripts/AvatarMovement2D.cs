@@ -163,6 +163,7 @@ public class AvatarMovement2D : MonoBehaviour
             ActiveButtons.advancebutton = true;
             Debug.Log("Advancing? " + ActiveButtons.advancebutton);
             ableToMove = false;
+            ChangeAnimationState(SQUISHY_IDLE);
             gameObject.GetComponent<Rigidbody2D>().velocity = new Vector2(0f, 0f);
             Animator doorAnim = other.gameObject.GetComponent<Animator>();
             doorAnim.Play("Exit_Hatch_close1");
@@ -210,21 +211,21 @@ public class AvatarMovement2D : MonoBehaviour
                 if (gameObject.GetComponent<Rigidbody2D>().velocity.x > 0.1)
                 {
                     ChangeAnimationState(SQUISHY_RUN);
-                    if (soundPlaying == false)
-                    {
-                        Debug.Log("Sound Started");
-                        soundPlaying = true;
-                        footstepSource.Play();
-                    }
+ //                   if (soundPlaying == false)
+ //                   {
+ //                       Debug.Log("Sound Started");
+ //                       soundPlaying = true;
+ //                       footstepSource.Play();
+ //                   }
                 }
                 else
                 {
                 ChangeAnimationState(SQUISHY_IDLE);
-                    if (soundPlaying == true)
-                    {
-                        soundPlaying = false;
-                        footstepSource.Stop();
-                    }
+ //                   if (soundPlaying == true)
+ //                   {
+ //                       soundPlaying = false;
+ //                       footstepSource.Stop();
+ //                   }
                 }
             }
         }
@@ -232,11 +233,11 @@ public class AvatarMovement2D : MonoBehaviour
 
     private void OnCollisionExit2D(Collision2D collision)
     {
-        if (soundPlaying == true)
-        {
-            soundPlaying = false;
-            footstepSource.Stop();
-        }
+ //       if (soundPlaying == true)
+ //       {
+ //           soundPlaying = false;
+ //           footstepSource.Stop();
+ //       }
     }
 
     void ChangeAnimationState(string newState)
