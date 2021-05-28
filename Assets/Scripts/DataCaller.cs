@@ -9,7 +9,7 @@ public class DataCaller : MonoBehaviour
         /*PlayerPrefs.SetInt("Level1Cleared", 0);
         PlayerPrefs.SetInt("Level2Cleared", 0);
         PlayerPrefs.SetInt("Level3Cleared", 0);*/
-        if (PlayerPrefs.HasKey("LevelCleared"))
+        if (PlayerPrefs.HasKey("Level1Cleared"))
         {
             ClearedLevelTracker.levelsCleared = PlayerPrefs.GetInt("LevelCleared");
             ClearedLevelTracker.Level_1Cleared = PlayerPrefs.GetInt("Level1Cleared");
