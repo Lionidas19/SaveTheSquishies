@@ -6,6 +6,9 @@ public class DataCaller : MonoBehaviour
 {
     private void Start()
     {
+        /*PlayerPrefs.SetInt("Level1Cleared", 0);
+        PlayerPrefs.SetInt("Level2Cleared", 0);
+        PlayerPrefs.SetInt("Level3Cleared", 0);*/
         if (PlayerPrefs.HasKey("LevelCleared"))
         {
             ClearedLevelTracker.levelsCleared = PlayerPrefs.GetInt("LevelCleared");
