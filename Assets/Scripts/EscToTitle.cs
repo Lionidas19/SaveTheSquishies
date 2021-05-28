@@ -23,7 +23,7 @@ public class EscToTitle : MonoBehaviour
             ActiveButtons.goButton = false;
             ActiveButtons.resetButton = false;
             ActiveButtons.advancebutton = false;
-            SceneManager.LoadScene("TitleScreen");
+            SceneManager.LoadScene("TitleScreen 1");
         }
     }
 }
