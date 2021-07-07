@@ -65,4 +65,10 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Levels/TitleScreen End.unity
     guid: 8000bd8d8c3320d4bbc4e1eb25f2dea1
+  - enabled: 0
+    path: Assets/Scenes/Levels/TitleScreen.unity
+    guid: c1e79b2fe818e704eae187e2e0d26184
+  - enabled: 1
+    path: Assets/Scenes/Levels/Credits.unity
+    guid: 6a401e97c38e48c499f2796032bbc57a
   m_configObjects: {}

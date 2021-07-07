@@ -115,6 +115,12 @@ public class LevelSelect : MonoBehaviour, IPointerClickHandler
                     SceneManager.LoadScene("Level15");
                 }
             }
+
+
+            if (gameObject.name == "Credits")
+            {
+                SceneManager.LoadScene("Credits");
+            }
         }
     }
 }
